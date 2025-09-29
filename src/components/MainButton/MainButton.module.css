@@ -1,0 +1,10 @@
+.main-btn {
+    color: #FFF;
+    font-size: 1.6rem;
+    font-weight: bold;
+    background-color: var(--primary-color);
+    border-radius: 10px;
+    padding: .6rem 6rem;
+    margin-top: 2rem;
+    cursor: pointer;
+}
