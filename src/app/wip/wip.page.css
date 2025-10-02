@@ -1,0 +1,41 @@
+.container {
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-image: url("/images/background.png");
+    background-repeat: no-repeat;
+    background-size: 45rem;
+    background-position: top;
+    opacity: .06;
+    z-index: -1;
+}
+
+.inner {
+    margin-top: 20rem;
+    text-align: center;
+}
+
+.content-1 {
+    font-Size: 2.5rem;
+}
+
+.content-2 {
+    font-Size: 1.5rem;
+    margin-top: .5rem;
+}
+
+.content-3 {
+    font-Size: 1rem;
+    margin-top: .5rem;
+}
