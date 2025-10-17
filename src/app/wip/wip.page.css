@@ -26,16 +26,24 @@
     text-align: center;
 }
 
-.content-1 {
+.discription-title {
     font-Size: 2.5rem;
 }
 
-.content-2 {
-    font-Size: 1.5rem;
-    margin-top: .5rem;
+.discription-detail {
+    font-Size: 1.8rem;
+    margin-bottom: 2rem;
 }
 
-.content-3 {
+.portfolio-info {
+    margin-top: 2.5rem;
+}
+
+.notice {
+    font-Size: 1.5rem; 
+}
+
+.contact {
     font-Size: 1rem;
     margin-top: .5rem;
 }
