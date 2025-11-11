@@ -1,0 +1,13 @@
+.personal-logo {
+    border: 2px solid var(--secondary-color);
+    border-radius: 50%;
+    display: inline-flex;
+    flex-shrink: 0;
+    flex-grow: 0;
+    line-height: 0;
+    overflow: hidden;
+}
+
+.btn-img {
+
+}
