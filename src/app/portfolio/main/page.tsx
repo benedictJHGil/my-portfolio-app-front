@@ -1,13 +1,41 @@
 import MainPageList from "@/components/MainPageList/MainPageList";
+import type { IncomingProject, DevEnv } from "@/types/project"
 import "./main.page.css"
 
-type Project = { id: number; title: string; type: string; startdate?: string | null; enddate?: string | null; git_rep_url?: string | null; page_url?: string | null; dev_env: string[]; image_url?: string | null; role: string; result: string; content?: string | null; };
+type ApiProject = { id: number; title: string; type: string; startdate?: string | null; enddate?: string | null; git_rep_url?: string | null; page_url?: string | null; dev_env: string[]; image_url?: string | null; role: string; result: string; content?: string | null; };
 
 type MainPageResponse = {
-    portfolio: Project[];
-    personalProjects: Project[];
-    workProjects: Project[];
+    portfolio: ApiProject[];
+    personalProjects: ApiProject[];
+    workProjects: ApiProject[];
 };
+
+function toDevEnvs(envs: string[]): DevEnv[] {
+    return envs.map((name, idx) => ({
+        id: idx + 1,
+        name,
+        type: "",
+        level: "",
+        logo_url: "",
+    }))
+}
+
+function toIncomingProjects(api: ApiProject[]): IncomingProject[] {
+    return api.map(p => ({
+        id: p.id,
+        title: p.title,
+        type: p.type,
+        startdate: p.startdate ?? null,
+        enddate: p.enddate ?? null,
+        git_rep_url: p.git_rep_url ?? null,
+        page_url: p.page_url ?? null,
+        dev_env: toDevEnvs(p.dev_env),
+        image_url: p.image_url ?? null,
+        role: p.role,
+        result: p.result,
+        content: p.content ?? null,
+    }))
+}
 
 async function fetchMain(): Promise<MainPageResponse> {
     const BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
@@ -34,7 +62,9 @@ async function fetchMain(): Promise<MainPageResponse> {
 async function MainPage() {
     const data = await fetchMain();
 
-    const { portfolio, personalProjects, workProjects } = data;
+    const portfolio = toIncomingProjects(data.portfolio);
+    const personalProjects = toIncomingProjects(data.personalProjects);
+    const workProjects = toIncomingProjects(data.workProjects);
 
     return (
         <div className="main-container">
