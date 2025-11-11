@@ -6,19 +6,30 @@ import AcademicSection from "@/components/AcademicSection/AcademicSection";
 import CertificateSection from "@/components/CertificateSection/CertificateSection";
 
 type Profile = { id: number; nameKr: string; nameEn: string; nickname?: string; birthdate?: string; phoneNumber?: string; email?: string; github?: string; blog?: string; youtube?: string; };
-type Skill = { id: number; name: string; type: string; level?: string; logo_url?: string; };
+type ApiSkill = { id: number; name: string; type: string; level?: string; logo_url?: string; };
+type UiSkill = { id: number; name: string; type: string; level: number; logo_url: string; };
 type Career = { id: number; name: string; startdate: string; enddate: string | null; duration: string; reason: string; department: string; rank: string; work: string; pay: string; location: string; task: string; dev_env: string[]; content: string; }
 type Academic = { id: number; name: string; startdate: string; enddate: string | null; major: string; grade: string | null; };
 type Certificate = { id: number; name: string; organization: string; date: string; level: string | null; score: number | null; evaluate: string; };
 
 type AboutPageResponse = {
   profile: Profile;
-  skills: Skill[];
+  skills: ApiSkill[];
   totalDate: string;
   careers: Career[];
   academics: Academic;
   certificates: Certificate;
 };
+
+function toUiSkills(apiSkills: ApiSkill[]): UiSkill[] {
+    return apiSkills.map(s => ({
+        id: s.id,
+        name: s.name,
+        type: s.type,
+        level: Number(s.level ?? 0),
+        logo_url: s.logo_url ?? "",
+    }));
+}
 
 async function fetchAbout(): Promise<AboutPageResponse> {
     const BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
@@ -45,13 +56,14 @@ async function fetchAbout(): Promise<AboutPageResponse> {
 async function AboutPage() {
     const data = await fetchAbout();
 
-    const { profile, skills, totalDate, careers, academics, certificates } = data;
+    const { profile, totalDate, careers, academics, certificates } = data;
+    const uiSkills = toUiSkills(data.skills);
     
     return (
         <div className="about-container">
             <ProfileDetails profile={profile} />
             <hr />
-            <SkillSection skills={skills} />
+            <SkillSection skills={uiSkills} />
             <hr />
             <CareerSection total={totalDate} careers={careers} />
             <hr />
