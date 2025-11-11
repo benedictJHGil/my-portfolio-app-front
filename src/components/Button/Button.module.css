@@ -1,1 +1,43 @@
+.main-btn {
+    color: #FFF;
+    font-size: 1.6rem;
+    font-weight: bold;
+    background-color: var(--primary-color);
+    border-radius: 8px;
+    padding: .6rem 6rem;
+    margin-top: 2rem;
+    cursor: pointer;
+}
 
+.nav-button {
+    color: #FFF;
+    font-size: 1.2rem;
+    background-color: var(--secondary-color);
+    border-radius: 8px;
+    cursor: pointer;
+    width: 8rem;
+    height: 2.2rem;
+    text-align: center;
+}
+
+.nav-button.active {
+    background-color: var(--primary-color);
+}
+
+.button {
+    color: #FFF;
+    font-size: 1.2rem;
+    background-color: var(--primary-color);
+    border-radius: 5px;
+    cursor: pointer;
+    width: 8.5rem;
+    height: 2.2rem;
+    text-align: center;
+}
+
+.is-img {
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    grid-template-columns: var(--btn-w, 2.5rem) 1fr;
+}
