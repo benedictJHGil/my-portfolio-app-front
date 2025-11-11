@@ -1,0 +1,26 @@
+.about-container hr {
+    color: var(--secondary-color);
+    margin: 2rem 0;
+}
+
+.section-title {
+    position: relative;
+    padding-left: 1em;
+    font-size: 24px;
+    display: flex;
+    align-items: flex-end;
+}
+
+.section-title::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+}
+
+.card-grid {
+    display: flex;
+    flex-wrap: wrap;
+    width: 95%;
+    margin: 1.5rem auto;
+}

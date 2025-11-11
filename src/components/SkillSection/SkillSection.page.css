@@ -1,0 +1,4 @@
+.skills-grid {
+    display: flex;
+    flex-wrap: wrap;
+}
