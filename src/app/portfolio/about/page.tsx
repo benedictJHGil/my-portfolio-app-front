@@ -18,7 +18,7 @@ type AboutPageResponse = {
   totalDate: string;
   careers: Career[];
   academics: Academic[];
-  certificates: Certificate;
+  certificates: Certificate[];
 };
 
 function toUiSkills(apiSkills: ApiSkill[]): UiSkill[] {

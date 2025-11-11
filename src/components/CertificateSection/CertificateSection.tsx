@@ -11,7 +11,7 @@ interface Certificate {
 }
 
 interface CertificateSectionProps {
-    certificates: Certificate
+    certificates: Certificate[]
 }
 
 function CertificateSection({ certificates }: CertificateSectionProps) {
