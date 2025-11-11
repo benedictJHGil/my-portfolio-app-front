@@ -17,7 +17,7 @@ type AboutPageResponse = {
   skills: ApiSkill[];
   totalDate: string;
   careers: Career[];
-  academics: Academic;
+  academics: Academic[];
   certificates: Certificate;
 };
 
