@@ -3,14 +3,14 @@ import SkillScrollImages from "@/components/SkillScrollImages/SkillScrollImages"
 
 async function WipPage() {
     const projectImgs = [
-        '/images/about/portfoilo.jpg',
-        '/images/about/grunwelt.png',
-        '/images/about/movie_vue.png',
-        '/images/about/movie_js.png',
-        '/images/about/disney.png',
-        '/images/about/sm_semi.png',
-        '/images/about/3d_food_printing.png',
-        '/images/about/slicing.png',
+        '/images/main/portfoilo.jpg',
+        '/images/main/grunwelt.png',
+        '/images/main/movie_vue.png',
+        '/images/main/movie_js.png',
+        '/images/main/disney.png',
+        '/images/main/sm_semi.png',
+        '/images/main/3d_food_printing.png',
+        '/images/main/slicing.png',
     ]
 
     return (

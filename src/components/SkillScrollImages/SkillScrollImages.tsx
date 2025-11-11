@@ -10,11 +10,11 @@ interface SkillScrollImagesProps {
     duration?: string;
 }
 
-const SkillScrollImages = ({
+function SkillScrollImages ({
     images,
     diraction = 'left',
     duration = '60s',
-}: SkillScrollImagesProps) => {
+}: SkillScrollImagesProps) {
     const duplicatedImages = [...images, ...images];
 
     return (
