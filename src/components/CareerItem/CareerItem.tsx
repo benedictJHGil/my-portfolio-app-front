@@ -4,7 +4,7 @@ interface Career {
     id: number; 
     name: string; 
     startdate: string; 
-    enddate: string; 
+    enddate: string | null; 
     duration: string; 
     reason: string; 
     department: string; 
