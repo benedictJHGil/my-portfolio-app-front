@@ -2,7 +2,7 @@ import MainPageList from "@/components/MainPageList/MainPageList";
 import type { IncomingProject, DevEnv } from "@/types/project"
 import "./main.page.css"
 
-type ApiProject = { id: number; title: string; type: string; startdate?: string | null; enddate?: string | null; git_rep_url?: string | null; page_url?: string | null; dev_env: string[]; image_url?: string | null; role: string; result: string; content?: string | null; };
+type ApiProject = { id: number; title: string; type: string; startdate?: string | null; enddate?: string | null; git_rep_url?: string | null; page_url?: string | null; dev_env: DevEnv[]; image_url?: string | null; role: string; result: string; content?: string | null; };
 
 type MainPageResponse = {
     portfolio: ApiProject[];
@@ -10,13 +10,13 @@ type MainPageResponse = {
     workProjects: ApiProject[];
 };
 
-function toDevEnvs(envs: string[]): DevEnv[] {
-    return envs.map((name, idx) => ({
-        id: idx + 1,
-        name,
-        type: "",
-        level: "",
-        logo_url: "",
+function toDevEnvs(envs: DevEnv[]) {
+    return envs.map(e => ({
+        id: e.id,
+        name: e.name,
+        type: e.type,
+        level: e.level,
+        logo_url: e.logo_url,
     }))
 }
 
@@ -65,7 +65,7 @@ async function MainPage() {
     const portfolio = toIncomingProjects(data.portfolio);
     const personalProjects = toIncomingProjects(data.personalProjects);
     const workProjects = toIncomingProjects(data.workProjects);
-
+    
     return (
         <div className="main-container">
             <div className="main-page-headline">
