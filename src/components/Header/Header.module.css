@@ -5,13 +5,5 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-}
-
-.page_logo {
-
-}
-
-.personal_logo {
-    border: 2px solid var(--secondary-color);
-    border-radius: 50%;
+    position: relative;
 }

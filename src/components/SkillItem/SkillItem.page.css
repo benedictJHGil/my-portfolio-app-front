@@ -1,0 +1,48 @@
+.skill-item-card {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+}
+
+.donut-outer-border {
+    fill: none;
+    stroke: var(--primary-color);
+    stroke-width: 2; 
+}
+
+.donut-background {
+    fill: none;
+    stroke: #fff;
+}
+
+.donut-inner-border {
+    fill: none;
+    stroke: var(--primary-color);
+    stroke-width: 2;
+}
+
+.donut-progress {
+    fill: none;
+    stroke: var(--secondary-color);
+    stroke-linecap: butt;
+    transition: stroke-dashoffset 0.8s ease-out;
+}
+
+.center-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.skill-level {
+    font-size: 12px;
+    color: var(--primary-color);
+    font-weight: 600;
+}

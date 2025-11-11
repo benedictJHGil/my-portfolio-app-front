@@ -1,0 +1,59 @@
+.career-item {
+    display: grid;
+    grid-template-columns: var(--career-w, 22rem) 1fr;
+    padding: 1.5rem 0;
+}
+
+.career-item:not(:last-child) {
+    border-bottom: 1px solid #ddd;
+}
+
+.career-item__left,
+.career-item__right {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.career-item__name {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.career-item__duration {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.career-item__etc-info,
+.career-item__title {
+    position: relative;
+    padding-left: 1em;
+}
+
+.career-item__content {
+    position: relative;
+    padding-left: 2.5em;
+}
+
+.career-item__etc-info::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+}
+
+.career-item__title::before {
+    content: "●";
+    position: absolute;
+    left: 0;
+}
+
+.career-item__content::before {
+    content: "•";
+    position: absolute;
+    left: 1.5em;
+}
+
+.career-item__title {
+    font-size: 16px;
+}

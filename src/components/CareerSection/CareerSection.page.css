@@ -1,0 +1,11 @@
+.total-duration {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-left: .8rem;
+}
+
+.career-grid {
+    width: 95%;
+    margin: 0 auto;
+}

@@ -1,0 +1,37 @@
+.image-trigger {
+    outline: none;
+}
+
+.image-trigger:focus-visible {
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.45);
+    border-radius: 12px;
+}
+
+.image-wrap {
+	position: relative; 
+    overflow: hidden; 
+    width: 100%;
+    aspect-ratio: 3 / 2;
+    border-radius: 8px;
+    border: 1px solid var(--primary-color);
+}
+
+.image {
+    object-fit: cover;
+    object-position: center;
+    opacity: var(--img-opacity, 0.5);
+    transform: scale(var(--img-scale, 1));
+    transition: opacity 200ms ease, transform 200ms ease;
+}
+
+.no-image {
+    display: grid;
+    place-items: center;
+    min-height: 200px;
+    background: var(--placeholder-bg, #f2f2f2);
+    border-radius: 8px;
+}
+
+.image-ready {
+    font-size: 0.9rem;
+}

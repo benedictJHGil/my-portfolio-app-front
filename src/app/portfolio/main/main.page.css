@@ -1,0 +1,16 @@
+.main-page-headline {
+    font-size: 28px;
+}
+
+.headline-content {
+    margin: .5rem 0;
+}
+
+.main-page-projects {
+    margin: 4rem 0 2rem;
+}
+
+.main-page-projects hr {
+    color: var(--secondary-color);
+    margin: 2rem 0;
+}
