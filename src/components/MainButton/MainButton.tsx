@@ -1,20 +1,14 @@
 "use client"
 
-import { useRouter } from "next/navigation";
-import Button from "@/components/Button/Button";
-import styles from "./MainButton.module.css"
+import Button from "@/components/Button/Button"
 
 function MainButton() {
-    const router = useRouter();
-
-    const handleClick = () => {
-        router.push("/portfolio/main");
-    }
+    const mainPath = '/portfolio/main'
 
     return (
         <Button
-            className={styles['main-btn']}
-            onClick={handleClick}
+            href={mainPath}
+            className={'main-btn'}
         >
             보러가기
         </Button>
