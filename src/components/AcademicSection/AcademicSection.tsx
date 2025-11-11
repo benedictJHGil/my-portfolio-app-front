@@ -11,7 +11,7 @@ interface Academic {
 }
 
 interface AcademicSectionProps {
-    academics: Academic
+    academics: Academic[]
 }
 
 function AcademicSection({ academics }: AcademicSectionProps) {
