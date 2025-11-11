@@ -12,7 +12,7 @@
     bottom: 0;
     left: 0;
     right: 0;
-    background-image: url("/images/background.png");
+    background-image: url("/images/home/background.png");
     background-repeat: no-repeat;
     background-size: 45rem;
     background-position: top;
@@ -43,4 +43,8 @@
 
 .phrase p:last-child {
     text-align: right;
+}
+
+.skill-images {
+    margin-top: 10rem;
 }
