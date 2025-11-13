@@ -33,7 +33,7 @@ function ContactModal({ isOpen, onClose }: ContactData) {
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         console.log("문의 내용:", form);
-        alert("문의가 전송되었습니다!");
+        alert("현재 개발중에 있습니다.");
         setForm({ title: "", type: "", contact: "", message: "" });
         onClose();
     };
@@ -54,6 +54,7 @@ function ContactModal({ isOpen, onClose }: ContactData) {
                     </button>
                 </div>
                 <hr />
+                <h2 style={{ color: 'red', fontSize: '25px', textAlign: 'center' }}>현재 개발중에 있습니다.</h2>
                 <form onSubmit={handleSubmit} className="contact-form">
                     <div className="form-row">
                         <label htmlFor="title" className="form-label">제목</label>
