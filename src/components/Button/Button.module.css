@@ -1,12 +1,23 @@
-.main-btn {
+.button {
     color: #FFF;
+    font-size: 1.2rem;
+    background-color: var(--primary-color);
+    border-radius: 5px;
+    cursor: pointer;
+    width: 8.5rem;
+    height: 2.2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-btn {
     font-size: 1.6rem;
     font-weight: bold;
-    background-color: var(--primary-color);
     border-radius: 8px;
-    padding: .6rem 6rem;
+    width: 17.9rem; 
+    height: 3.6rem;
     margin-top: 2rem;
-    cursor: pointer;
 }
 
 .nav-button {
@@ -24,20 +35,24 @@
     background-color: var(--primary-color);
 }
 
-.button {
-    color: #FFF;
-    font-size: 1.2rem;
-    background-color: var(--primary-color);
-    border-radius: 5px;
-    cursor: pointer;
-    width: 8.5rem;
-    height: 2.2rem;
-    text-align: center;
-}
-
 .is-img {
     display: grid;
     align-items: center;
     justify-items: center;
     grid-template-columns: var(--btn-w, 2.5rem) 1fr;
+}
+
+.link-btn-404 {
+    height: 3rem;
+}
+
+.link-home {
+    background-color: #FFF;
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+    width: 9rem;
+}
+
+.link-main {
+    width: 14rem;
 }

@@ -8,7 +8,7 @@ function MainButton() {
     return (
         <Button
             href={mainPath}
-            className={'main-btn'}
+            className={"button main-btn"}
         >
             보러가기
         </Button>

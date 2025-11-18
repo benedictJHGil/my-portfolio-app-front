@@ -58,7 +58,8 @@
 │  ├─ 📁 portfolio
 │  ├─ 📁 wip
 │  ├─ 🎨 globals.css
-│  └─ 🧩 layout.tsx
+│  ├─ 🧩 layout.tsx
+│  └─ 🛑 not-found.tsx
 ├─ 🔌 adapters
 ├─ 🧩 components
 ├─ 🪝 hooks
