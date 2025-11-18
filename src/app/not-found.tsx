@@ -27,14 +27,13 @@ function NotFound() {
             >
                 홈으로 가기
             </Button>
-            {/* <Link href="/" className="link-home">홈으로 가기</Link> */}
+
             <Button
-                href={"/"}
+                href={"/portfolio/main"}
                 className={"button link-btn-404 link-main"}
             >
-                포트폴리오 보러 가기
+                포트폴리오 보러가기
             </Button>
-            {/* <Link href="/portfolio/main" className="link-main">포트폴리오 보러 가기</Link> */}
         </div>
     </div>
   )
