@@ -16,11 +16,11 @@ interface AcademicItemProps {
 function AcademicItem({ academic }:AcademicItemProps) {
     return (
         <div className={styles["academic-item"]}>
-            <div className="academic-item__duration">
+            <div className={styles["academic-item__duration"]}>
                 {academic.startdate} ~ {academic.enddate}
             </div>
             <p className={styles["academic-item__name"]}>{academic.name}</p>
-            <p className="academic-item__major">{academic.major}</p>
+            <p className={styles["academic-item__major"]}>{academic.major}</p>
         </div>
     )
 }

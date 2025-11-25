@@ -27,7 +27,7 @@ function HomePage() {
     ]
 
     return (
-        <div className="container">
+        <div className="home-container">
             <div className="main-title">
                 <p className="title">유일한 포트폴리오</p>
             </div>
@@ -40,7 +40,7 @@ function HomePage() {
             </div>
             <MainButton />
             <section className="skill-images">
-                <SkillScrollImages images={skillImgs} diraction="left" duration="40s"></SkillScrollImages>
+                <SkillScrollImages images={skillImgs} diraction="left" duration="60s"></SkillScrollImages>
             </section>
         </div>
     )

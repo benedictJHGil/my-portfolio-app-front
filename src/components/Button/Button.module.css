@@ -1,34 +1,36 @@
 .button {
     color: #FFF;
-    font-size: 1.2rem;
+    font-size: 14px;
     background-color: var(--primary-color);
     border-radius: 5px;
     cursor: pointer;
-    width: 8.5rem;
-    height: 2.2rem;
+    width: 6rem;
+    height: 1.65rem;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .main-btn {
-    font-size: 1.6rem;
+    font-size: 16px;
     font-weight: bold;
-    border-radius: 8px;
-    width: 17.9rem; 
-    height: 3.6rem;
-    margin-top: 2rem;
+    border-radius: 6px;
+    width: 11rem; 
+    height: 2.3rem;
+    margin-top: 1.5rem;
 }
 
 .nav-button {
     color: #FFF;
-    font-size: 1.2rem;
+    font-size: 13px;
     background-color: var(--secondary-color);
-    border-radius: 8px;
+    border-radius: 4px;
     cursor: pointer;
-    width: 8rem;
-    height: 2.2rem;
-    text-align: center;
+    width: 5rem;
+    height: 1.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .nav-button.active {
@@ -39,20 +41,70 @@
     display: grid;
     align-items: center;
     justify-items: center;
-    grid-template-columns: var(--btn-w, 2.5rem) 1fr;
+    grid-template-columns: var(--btn-w, 1.8rem) 1fr;
+}
+
+.btn-img {
+    position: relative;
+    width: 100%;
+    max-width: 22px;
+    aspect-ratio: 1 / 1;
 }
 
 .link-btn-404 {
-    height: 3rem;
+    height: 2.6rem;
 }
 
 .link-home {
     background-color: #FFF;
     color: var(--primary-color);
     border: 1px solid var(--primary-color);
-    width: 9rem;
+    width: 6rem;
 }
 
 .link-main {
-    width: 14rem;
+    width: 10rem;
+}
+
+@media (min-width: 768px) {
+    .button {
+        font-size: 18px;
+        width: 8.5rem;
+        height: 2.2rem;
+    }
+
+    .main-btn {
+        font-size: 26px;
+        border-radius: 8px;
+        width: 17.9rem; 
+        height: 3.6rem;
+        margin-top: 2rem;
+    }
+
+    .nav-button {
+        font-size: 18px;
+        border-radius: 6px;
+        width: 8rem;
+        height: 2.2rem;
+    }
+
+    .is-img {
+        grid-template-columns: var(--btn-w, 2.5rem) 1fr;
+    }
+
+    .btn-img {
+        max-width: 30px;
+    }
+
+    .link-btn-404 {
+        height: 3rem;
+    }
+
+    .link-home {
+        width: 9rem;
+    }
+
+    .link-main {
+        width: 14rem;
+    }
 }

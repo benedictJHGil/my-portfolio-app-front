@@ -3,6 +3,7 @@
 import React from "react";
 import Image from "next/image";
 import styles from "./SkillScrollImages.module.css";
+// import MyImage from "../MyImage/MyImage";
 
 interface SkillScrollImagesProps {
     images: string[];
@@ -18,16 +19,16 @@ function SkillScrollImages ({
     const duplicatedImages = [...images, ...images];
 
     return (
-        <div className={styles.wrapper}>
-            <div className={styles['fade-left']} />
-            <div className={styles['fade-right']} />
+        <div className={styles["wrapper"]}>
+            <div className={styles["fade-left"]} />
+            <div className={styles["fade-right"]} />
 
             <div
-                className={`${styles['images-container']} ${diraction === 'left' ? styles['scroll-left'] : styles['scroll-right']}`}
+                className={`${styles["images-container"]} ${diraction === "left" ? styles["scroll-left"] : styles["scroll-right"]}`}
                 style={{ '--scroll-duration': duration } as React.CSSProperties}
             >
                 {duplicatedImages.map((src, index) => (
-                    <div key={index} className={styles['image-item']}>
+                    <div key={index} className={styles["image-item"]}>
                         <Image
                             src={src}
                             alt={`Slide Image ${index + 1}`}
@@ -36,6 +37,14 @@ function SkillScrollImages ({
                             objectFit="contain"
                             priority={index < images.length / 2}
                         />
+                        {/* <MyImage 
+                            src={src}
+                            alt={`Slide Image ${index + 1}`}
+                            fill
+                            objectFit="contain"
+                            priority={index < images.length / 2}
+                            isClickable={false}
+                        /> */}
                     </div>
                 ))}
             </div>

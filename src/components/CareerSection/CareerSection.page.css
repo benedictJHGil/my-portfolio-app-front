@@ -1,11 +1,18 @@
 .total-duration {
-    font-size: 20px;
+    font-size: 16px;
     font-weight: 600;
     color: var(--primary-color);
-    margin-left: .8rem;
+    margin-left: .6rem;
 }
 
 .career-grid {
     width: 95%;
     margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+    .total-duration {
+        font-size: 20px;
+        margin-left: .8rem;
+    }
 }

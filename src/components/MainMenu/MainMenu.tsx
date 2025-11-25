@@ -20,8 +20,8 @@ function MainMenu({onClose}: MenuProps) {
     const isAboutActive = currentPath === aboutPath
 
     return (
-        <div className={styles.container}>
-            <div className={styles.inner}>
+        <div className={styles["menu-container"]}>
+            <div className={styles["inner"]}>
                 <button
                     className={styles["close-button"]}
                     onClick={onClose}
@@ -29,15 +29,16 @@ function MainMenu({onClose}: MenuProps) {
                 >
                     <AiOutlineClose />
                 </button>
-                <MyImage
-                    src={"/images/personal_logo.png"}
-                    alt={"유일한"}
-                    width={70} 
-                    height={70}
-                    className={"personal-logo"}
-                    isClickable={false}
-                />
-                <div className={styles.profile}>
+                <div onClick={onClose}>
+                    <MyImage
+                        src={"/images/personal_logo.png"}
+                        alt={"유일한"}
+                        fill
+                        className={"personal-logo-image-wrap"}
+                        isClickable={true}
+                    />
+                </div>
+                <div className={styles["profile"]}>
                     <p>길 재 형</p>
                     <p>(uniquehan)</p>
                 </div>

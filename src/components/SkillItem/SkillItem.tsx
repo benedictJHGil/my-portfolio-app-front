@@ -1,5 +1,6 @@
 import Image from "next/image"
-import "./SkillItem.page.css"
+import styles from "./SkillItem.module.css"
+import MyImage from "../MyImage/MyImage";
 
 interface Skill {
   id: number;
@@ -13,7 +14,7 @@ interface SkillItemProps {
     skill: Skill
 }
 
-const RADIUS = 60;
+const RADIUS = 50; // 60
 const STROKE_WIDTH = 20;
 const svgSize = (RADIUS + STROKE_WIDTH) * 2; // SVG 뷰포트 크기 계산
 const center = svgSize / 2; // 중앙 좌표
@@ -24,35 +25,35 @@ function SkillItem({ skill }: SkillItemProps) {
     const strokeDashoffset = CIRCUMFERENCE - (skill.level / 100) * CIRCUMFERENCE;
 
     return (
-        <div className="skill-item-card">
+        <div className={styles["skill-item-card"]}>
             <svg
                 width={svgSize}
                 height={svgSize}
                 viewBox={`0 0 ${svgSize} ${svgSize}`}
             >
                 <circle
-                    className="donut-outer-border"
+                    className={styles["donut-outer-border"]}
                     cx={center}
                     cy={center}
                     r={RADIUS + STROKE_WIDTH / 2 + 1}
                     strokeWidth={1}
                 />
                 <circle
-                    className="donut-background"
+                    className={styles["donut-background"]}
                     cx={center}
                     cy={center}
                     r={RADIUS}
                     strokeWidth={STROKE_WIDTH}
                 />
                 <circle
-                    className="donut-inner-border"
+                    className={styles["donut-inner-border"]}
                     cx={center}
                     cy={center}
                     r={RADIUS - STROKE_WIDTH / 2 - 1}
                     strokeWidth={1}
                 />
                 <circle
-                    className="donut-progress"
+                    className={styles["donut-progress"]}
                     cx={center}
                     cy={center}
                     r={RADIUS}
@@ -63,14 +64,16 @@ function SkillItem({ skill }: SkillItemProps) {
                 />
             </svg>
 
-            <div className="center-content">
-                <Image 
+            <div className={styles["center-content"]}>
+                <MyImage 
                     src={skill.logo_url} 
-                    alt={`${skill.name} icon`} 
-                    width={60} 
-                    height={60} 
+                    alt={`${skill.name} icon`}
+                    fill
+                    objectFit="contain"
+                    className={"skill-item-image"}
+                    isClickable={false}
                 />
-                <div className="skill-level">{skill.level}%</div>
+                <div className={styles["skill-level"]}>{skill.level}%</div>
             </div>
         </div>
     )

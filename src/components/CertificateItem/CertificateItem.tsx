@@ -20,7 +20,7 @@ function CertificateItem({ certificate }: CertificateItemProps) {
 
     return (
         <div className={styles["certificate-item"]}>
-            <div className="certificate-item__date">
+            <div className={styles["certificate-item__date"]}>
                 {certificate.date}
             </div>
             <p className={styles["certificate-item__name"]}>{certificate.name}</p>
@@ -33,7 +33,7 @@ function CertificateItem({ certificate }: CertificateItemProps) {
                 )}                
                 <span className={styles["certificate-item__evaluate"]}>{certificate.evaluate}</span>
             </p>
-            <p className="certificate-item__organization">{certificate.organization}</p>
+            <p className={styles["certificate-item__organization"]}>{certificate.organization}</p>
         </div>
     )
 }

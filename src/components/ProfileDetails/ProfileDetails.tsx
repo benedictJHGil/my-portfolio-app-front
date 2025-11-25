@@ -5,6 +5,7 @@ import Image from "next/image"
 import "./ProfileDetails.page.css"
 import Button from "../Button";
 import ContactModal from "../ContactModal/ContactModal";
+import MyImage from "../MyImage/MyImage";
 
 interface Profile {
     id: number; 
@@ -37,15 +38,13 @@ function ProfileDetails({ profile }: ProfileDetailsProps) {
         return (
         <div className="profile-inner">
             <section className="profile-header-section">
-                <div className="profile-image-wrap">
-                    <Image 
-                        src="/images/icon/profile.jpg"
-                        alt="유일한"
-                        width="150"
-                        height="150"
-                        priority
-                    />
-                </div>
+                <MyImage 
+                    src={"/images/icon/profile.jpg"}
+                    alt={"유일한"}
+                    fill
+                    className={"profile-image-wrap"}
+                    isClickable={false}
+                />
                 <div className="social-links-group">
                     <Button
                         href={profile.github ? profile.github : "#"}
