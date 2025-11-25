@@ -1,7 +1,6 @@
 "use client"
 
 import { useState } from "react";
-import Image from "next/image"
 import "./ProfileDetails.page.css"
 import Button from "../Button";
 import ContactModal from "../ContactModal/ContactModal";
