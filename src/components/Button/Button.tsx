@@ -18,7 +18,9 @@ interface ButtonProps {
         alt: string
         width?: number
         height?: number
+        fill?: boolean
         imgClassName?: string
+        isClickable?: boolean
     }
 }
 
@@ -33,6 +35,14 @@ function Button({
     type,
     image
 }: ButtonProps) {
+    const {
+        src = "",
+        alt = "",
+        fill = true,
+        imgClassName = "",
+        isClickable = true
+    } = image ?? {};
+
     const classNameTrim = className?.trim().split(" ")
     const buttonStyle = classNameTrim?.map(c => styles[c] ?? c)
         .filter(Boolean)
@@ -40,13 +50,12 @@ function Button({
     
     const buttonClasses = `${buttonStyle}${isActive ? ' ' + styles.active : ''}`;
 
-    const {
-        src = "",
-        alt = "",
-        width = 30,
-        height = 30,
-        imgClassName = ""
-    } = image ?? {};
+    const imgClassNameTrim = imgClassName?.trim().split(" ")
+    const imgStyle = imgClassNameTrim?.map(c => styles[c] ?? c)
+        .filter(Boolean)
+        .join(" ")
+
+    const imgClasses = `${imgStyle}`;
 
     if (href) {
         return (
@@ -61,9 +70,9 @@ function Button({
                     <MyImage 
                         src={src}
                         alt={alt}
-                        width={width}
-                        height={height}
-                        className={imgClassName}
+                        fill={fill}
+                        className={imgClasses}
+                        isClickable={isClickable}
                     />
                 )}
                 {children}
@@ -81,9 +90,9 @@ function Button({
                 <MyImage 
                     src={src}
                     alt={alt}
-                    width={width}
-                    height={height}
-                    className={imgClassName}
+                    fill={fill}
+                    className={imgClasses}
+                    isClickable={isClickable}
                 />
             )}
             {children}

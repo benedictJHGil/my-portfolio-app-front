@@ -3,7 +3,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 20px;
+    margin: 10px;
 }
 
 .donut-outer-border {
@@ -32,17 +32,33 @@
 
 .center-content {
     position: absolute;
-    top: 50%;
+    top: 45%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -45%);
     display: flex;
     flex-direction: column;
     align-items: center;
-    text-align: center;
+    width: 3rem;
+    height: 3rem;
 }
 
 .skill-level {
-    font-size: 12px;
+    font-size: 10px;
     color: var(--primary-color);
     font-weight: 600;
+}
+
+@media (min-width: 768px) {
+    .skill-item-card {
+        margin: 15px;
+    }
+
+    .skill-level {
+        font-size: 12px;
+    }
+
+    .center-content {
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
 }

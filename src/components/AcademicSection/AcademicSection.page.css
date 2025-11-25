@@ -1,6 +1,13 @@
 .final-academic {
-    font-size: 20px;
+    font-size: 16px;
     font-weight: 600;
     color: var(--primary-color);
-    margin-left: .8rem;
+    margin-left: .6rem;
+}
+
+@media (min-width: 768px) {
+    .final-academic {
+        font-size: 20px;
+        margin-left: .8rem;
+    }
 }

@@ -54,7 +54,7 @@ function ContactModal({ isOpen, onClose }: ContactData) {
                     </button>
                 </div>
                 <hr />
-                <h2 style={{ color: 'red', fontSize: '25px', textAlign: 'center' }}>현재 개발중에 있습니다.</h2>
+                <h2 style={{ color: 'red', fontSize: '18px', textAlign: 'center' }}>현재 개발중에 있습니다.</h2>
                 <form onSubmit={handleSubmit} className="contact-form">
                     <div className="form-row">
                         <label htmlFor="title" className="form-label">제목</label>

@@ -5,27 +5,29 @@ import { Hahmlet } from "next/font/google";
 import "./globals.css";
 
 const hahmlet = Hahmlet({
-  display: "swap",
-  subsets: ["latin"],
+    display: "swap",
+    subsets: ["latin"],
 });
 
 export const metadata: Metadata = {
-  title: "유일한 포트폴리오",
-  description: "유일한 포트폴리오에 어서오세요.",
+    title: "유일한 포트폴리오",
+    description: "유일한 포트폴리오에 어서오세요.",
 };
 
 export default function RootLayout({
-  children,
+    children,
 }: Readonly<{
-  children: React.ReactNode;
+    children: React.ReactNode;
 }>) {
-  return (
-    <html lang="ko">
-      <body className={hahmlet.className}>
-        <Header />
-        <main>{children}</main>
-        <Footer />
-      </body>
-    </html>
-  );
+    return (
+        <html lang="ko">
+            <body className={hahmlet.className}>
+                <div className="page-wrapper">
+                    <Header />
+                    <main>{children}</main>
+                    <Footer />
+                </div>
+            </body>
+        </html>
+    );
 }

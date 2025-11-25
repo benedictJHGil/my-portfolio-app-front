@@ -1,12 +1,17 @@
+.about-container{
+    width: 90%;
+    margin: 0 auto;
+}
+
 .about-container hr {
     color: var(--secondary-color);
-    margin: 2rem 0;
+    margin: 1.5rem 0;
 }
 
 .section-title {
     position: relative;
-    padding-left: 1em;
-    font-size: 24px;
+    padding-left: .8em;
+    font-size: 20px;
     display: flex;
     align-items: flex-end;
 }
@@ -21,6 +26,30 @@
 .card-grid {
     display: flex;
     flex-wrap: wrap;
-    width: 95%;
-    margin: 1.5rem auto;
+    margin: 1rem;
+}
+
+.modal-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+@media (min-width: 768px) {
+    .about-container hr {
+        margin: 2rem 0;
+    }
+
+    .section-title {
+        padding-left: 1em;
+        font-size: 24px;
+    }
+
+    .card-grid {
+        margin: 1.5rem;
+    }
 }

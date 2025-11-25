@@ -1,23 +1,56 @@
 .certificate-item {
     border: 1px solid var(--primary-color);
     background-color: #fff;
-    width: 15rem;
-    height: 8rem;
+    width: 14rem;
+    height: 7.6rem;
     display: flex;
     flex-direction: column;
     align-items: flex-end;
     justify-content: center;
     gap: .4rem;
     padding-right: .8rem;
-    margin-right: 1.5rem;
-    margin-bottom: 1.5rem;
+    margin-right: 1rem;
+    margin-bottom: 1rem;
+}
+
+.certificate-item__date {
+    font-size: 14px;
 }
 
 .certificate-item__name {
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 600;
 }
 
 .certificate-item-mid {
     font-size: 14px;
+}
+
+.certificate-item__organization {
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    .certificate-item {
+        width: 15rem;
+        height: 8rem;
+        margin-right: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .certificate-item__date {
+        font-size: 16px;
+    }
+
+    .certificate-item__name {
+        font-size: 18px;
+    }
+
+    .certificate-item-mid {
+        font-size: 16px;
+    }
+
+    .certificate-item__organization {
+        font-size: 16px;
+    }
 }

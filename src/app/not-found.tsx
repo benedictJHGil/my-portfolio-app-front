@@ -4,12 +4,11 @@ import Button from "@/components/Button/Button";
 
 function NotFound() {
   return (
-    <div className="container">
+    <div className="error-container">
         <MyImage
             src={"/images/404_page.png"}
             alt={"404"}
-            width={300} 
-            height={300}
+            fill
             className={"image-404"}
         />
 

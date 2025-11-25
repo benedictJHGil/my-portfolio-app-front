@@ -1,6 +1,20 @@
-.personal-logo {
-    border: 2px solid var(--secondary-color);
+.personal-logo-image-wrap {
+    position: relative;
+    width: 35px;
+    aspect-ratio: 1;
+    border: 1px solid var(--secondary-color);
     border-radius: 50%;
+}
+
+.profile-image-wrap{
+    position: relative;
+    width: 100px;
+    aspect-ratio: 1;
+    border: 2px solid var(--primary-color);
+    border-top-right-radius: 0;
+    border-top-left-radius: 50%;
+    border-bottom-right-radius: 50%;
+    border-bottom-left-radius: 50%;
     display: inline-flex;
     flex-shrink: 0;
     flex-grow: 0;
@@ -8,6 +22,29 @@
     overflow: hidden;
 }
 
+.skill-item-image {
+    position: relative;
+    width: 2.6rem;
+    aspect-ratio: 1;
+}
+
 .image-404 {
+    position: relative;
+    width: 150px;
+    aspect-ratio: 1;
     margin-top: 8rem;
+}
+
+@media (min-width: 768px) {
+    .personal-logo-image-wrap {
+        width: 60px;
+    }
+
+    .profile-image-wrap{
+        width: 150px;
+    }
+
+    .image-404 {
+        width: 300px;
+    }
 }

@@ -14,7 +14,7 @@ async function WipPage() {
     ]
 
     return (
-    <div className="container">
+    <div className="wip-container">
         <div className="inner">
             <p className="discription-title">현재 포트폴리오 리뉴얼중입니다.</p>
             <p className="discription-detail">작업이 끝나면 아래와 같은 프로젝트들을 확인하실 수 있습니다.</p>

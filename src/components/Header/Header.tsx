@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from "react";
 import { usePathname } from 'next/navigation';
-import Image from "next/image";
 import Link from "next/link";
 import styles from './Header.module.css';
 import MyImage from "../MyImage/MyImage";
@@ -11,8 +10,8 @@ import MainMenu from "../MainMenu/MainMenu";
 function Header() {
     const [isOpen, setIsOpen] = useState(false)
     const currentPath = usePathname();
-    
-    const isMenuAvailable = currentPath !== '/portfolio/home';
+
+    const isMenuAvailable = currentPath === '/portfolio/main' || currentPath === '/portfolio/about';
 
     // main, about 페이지일 때
     useEffect(() => {
@@ -20,19 +19,19 @@ function Header() {
     }, [isMenuAvailable])
     
     const handleLogoClick = () => {
-        setIsOpen(true)
-    }
+        setIsOpen(true);
+    };
 
     return (
-        <header className={styles.header}>
-            <div className={styles.page_logo}>
+        <header className={styles["header"]}>
+            <div className={styles["page-logo"]}>
                 <Link href="/portfolio/home">
-                    <Image
-                        src="/images/page_loge.png"
-                        alt="유일한 포트폴리오"
-                        width={200}
-                        height={200}
-                        priority
+                    <MyImage
+                        src={"/images/page_loge.png"}
+                        alt={"유일한 포트폴리오"}
+                        fill
+                        className={"page-logo-image"}
+                        isClickable={true}
                     />
                 </Link>
             </div>
@@ -41,9 +40,8 @@ function Header() {
                     <MyImage 
                         src={"/images/personal_logo.png"}
                         alt={"유일한"}
-                        width={60} 
-                        height={60}
-                        className={"personal-logo"}
+                        fill
+                        className={"personal-logo-image-wrap"}
                         isClickable={true}
                     />
                 )}
