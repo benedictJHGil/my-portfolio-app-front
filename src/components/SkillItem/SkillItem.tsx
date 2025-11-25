@@ -1,4 +1,3 @@
-import Image from "next/image"
 import styles from "./SkillItem.module.css"
 import MyImage from "../MyImage/MyImage";
 
