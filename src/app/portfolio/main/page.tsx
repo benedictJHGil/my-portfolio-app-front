@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic";
+
 import MainPageList from "@/components/MainPageList/MainPageList";
 import type { IncomingProject, DevEnv } from "@/types/project"
 import "./main.page.css"
