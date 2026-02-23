@@ -39,7 +39,7 @@ async function fetchAbout(): Promise<AboutPageResponse> {
 
     try {
         const response = await fetch(url, {
-            next: { revalidate: 3600 },
+            cache: "no-store",
         });
 
         if (!response.ok) {
