@@ -1,5 +1,3 @@
-export const dynamic = "force-dynamic";
-
 import "./about.page.css"
 import ProfileDetails from "@/components/ProfileDetails/ProfileDetails";
 import SkillSection from "@/components/SkillSection/SkillSection";
@@ -54,7 +52,7 @@ async function fetchAbout(): Promise<AboutPageResponse> {
 
     try {
         const response = await fetch(url, {
-            cache: "no-store",
+            next: { revalidate: 3600 }
         });
 
         if (!response.ok) {
