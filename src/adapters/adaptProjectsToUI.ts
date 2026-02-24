@@ -34,6 +34,7 @@ export function adaptProjectsToUI(items: IncomingProject[]): UIProject[] {
 	return (items || []).map((p, idx) => ({
 		id: p.id,
 		title: p.title,
+		type: p.type,
 
 		// Header
 		periodLabel: toPeriodLabel(p.startdate, p.enddate),
@@ -44,7 +45,8 @@ export function adaptProjectsToUI(items: IncomingProject[]): UIProject[] {
 		extra: [],
 
 		// Body
-		content: p.content ?? null,
+		outline: p.outline ?? null,
+		content: p.content,
 		role: p.role ?? null,
 		techStack: toTechStack(p.dev_env),
 		result: p.result ?? null,

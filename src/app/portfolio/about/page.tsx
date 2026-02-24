@@ -10,7 +10,7 @@ import CertificateSection from "@/components/CertificateSection/CertificateSecti
 type Profile = { id: number; nameKr: string; nameEn: string; nickname?: string; birthdate?: string; phoneNumber?: string; email?: string; github?: string; blog?: string; youtube?: string; };
 type ApiSkill = { id: number; name: string; type: string; level?: string; logo_url?: string; };
 type UiSkill = { id: number; name: string; type: string; level: number; logo_url: string; };
-type Career = { id: number; name: string; startdate: string; enddate: string | null; duration: string; reason: string; department: string; rank: string; work: string; pay: string; location: string; task: string; dev_env: string[]; content: string; }
+type Career = { id: number; name: string; startdate: string; enddate: string | null; duration: string; reason?: string | null; department: string; rank: string; work: string; pay: string; location: string; task: string; dev_env: string[]; content: string; }
 type Academic = { id: number; name: string; startdate: string; enddate: string | null; major: string; grade: string | null; };
 type Certificate = { id: number; name: string; organization: string; date: string; level: string | null; score: number | null; evaluate: string; };
 

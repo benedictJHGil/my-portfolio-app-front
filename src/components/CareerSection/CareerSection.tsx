@@ -7,7 +7,7 @@ interface Career {
     startdate: string; 
     enddate: string | null; 
     duration: string; 
-    reason: string; 
+    reason?: string | null; 
     department: string; 
     rank: string; 
     work: string; 

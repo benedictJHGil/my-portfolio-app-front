@@ -85,7 +85,7 @@ function ProfileDetails({ profile }: ProfileDetailsProps) {
             <section className="profile-details-section">
                 <p className="detail-item">{profile.nameKr}</p>
                 <p className="detail-item">{profile.birthdate}</p>
-                <p className="detail-item">{profile.phoneNumber}</p>
+                {/* <p className="detail-item">{profile.phoneNumber}</p> */}
                 <div className="email-group">
                     <p className="detail-item">{profile.email}</p>
                     <Button
