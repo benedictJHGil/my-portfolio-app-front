@@ -1,5 +1,3 @@
-export const dynamic = "force-dynamic";
-
 import "./about.page.css"
 import ProfileDetails from "@/components/ProfileDetails/ProfileDetails";
 import SkillSection from "@/components/SkillSection/SkillSection";
