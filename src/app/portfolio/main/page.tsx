@@ -45,25 +45,23 @@ function toIncomingProjects(api: ApiProject[]): IncomingProject[] {
 }
 
 async function fetchMain(): Promise<MainPageResponse> {
-    const BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
-    if (!BASE_URL) throw new Error('NEXT_PUBLIC_API_BASE_URL is not set');
-
-    const url = `${BASE_URL}/api/main/full`
+    const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL!;
 
     try {
-        const response = await fetch(url, {
+        const response = await fetch(`${SITE_URL}/api/main`, {
             next: { revalidate: 3600 }
         });
 
         if (!response.ok) {
-            throw new Error(`${response.status} ${response.statusText}`);
+            // throw new Error(`${response.status} ${response.statusText}`)
+            return EMPTY_MAIN
         }
 
-        return await response.json();
+        return await response.json()
     } catch (error) {
-        console.log(error);
-        // throw new Error("error");
-        return EMPTY_MAIN;
+        console.log(error)
+        // throw new Error("error")
+        return EMPTY_MAIN
     }
 }
 

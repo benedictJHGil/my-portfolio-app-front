@@ -45,25 +45,23 @@ function toUiSkills(apiSkills: ApiSkill[]): UiSkill[] {
 }
 
 async function fetchAbout(): Promise<AboutPageResponse> {
-    const BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
-    if (!BASE_URL) throw new Error('NEXT_PUBLIC_API_BASE_URL is not set');
-
-    const url = `${BASE_URL}/api/about/full`
+    const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL!;
 
     try {
-        const response = await fetch(url, {
+        const response = await fetch(`${SITE_URL}/api/about`, {
             next: { revalidate: 3600 }
         });
 
         if (!response.ok) {
-            throw new Error(`${response.status} ${response.statusText}`);
+            // throw new Error(`${response.status} ${response.statusText}`)
+            return EMPTY_ABOUT
         }
 
-        return await response.json();
+        return await response.json()
     } catch (error) {
-        console.log(error);
-        // throw new Error("error");
-        return EMPTY_ABOUT;
+        console.log(error)
+        // throw new Error("error")
+        return EMPTY_ABOUT
     }
 }
 
