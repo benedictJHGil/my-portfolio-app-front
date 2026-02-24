@@ -23,6 +23,19 @@ type AboutPageResponse = {
   certificates: Certificate[];
 };
 
+const EMPTY_ABOUT: AboutPageResponse = {
+  profile: {
+    id: 0,
+    nameKr: "",
+    nameEn: "",
+  },
+  skills: [],
+  totalDate: "",
+  careers: [],
+  academics: [],
+  certificates: [],
+};
+
 function toUiSkills(apiSkills: ApiSkill[]): UiSkill[] {
     return apiSkills.map(s => ({
         id: s.id,
@@ -51,7 +64,8 @@ async function fetchAbout(): Promise<AboutPageResponse> {
         return await response.json();
     } catch (error) {
         console.log(error);
-        throw new Error("error");
+        // throw new Error("error");
+        return EMPTY_ABOUT;
     }
 }
 
