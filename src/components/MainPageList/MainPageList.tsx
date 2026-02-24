@@ -97,6 +97,7 @@ function MainPageList({ sectionTitle, items }: Props) {
 				idForAria={sectionDetailId}
 				header={{
 					title: openItem?.title ?? "",
+					type: openItem?.type ?? "",
             		periodLabel: openItem?.periodLabel ?? null,
 				}}
 				actions={{
@@ -105,7 +106,8 @@ function MainPageList({ sectionTitle, items }: Props) {
 					extra: openItem?.extra,
 				}}
 				body={{
-					content: openItem?.content ?? null,
+					outline: openItem?.outline ?? null,
+					content: openItem?.content ?? "",
 					role: openItem?.role ?? null,
 					techStack: openItem?.techStack ?? [],
 					result: openItem?.result ?? null,

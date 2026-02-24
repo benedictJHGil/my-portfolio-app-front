@@ -4,7 +4,7 @@ import MainPageList from "@/components/MainPageList/MainPageList";
 import type { IncomingProject, DevEnv } from "@/types/project"
 import "./main.page.css"
 
-type ApiProject = { id: number; title: string; type: string; startdate?: string | null; enddate?: string | null; git_rep_url?: string | null; page_url?: string | null; dev_env: DevEnv[]; image_url?: string | null; role: string; result: string; content?: string | null; };
+type ApiProject = { id: number; title: string; type: string; startdate?: string | null; enddate?: string | null; git_rep_url?: string | null; page_url?: string | null; dev_env: DevEnv[]; image_url?: string | null; outline?: string | null; role?: string | null; content: string; result?: string | null; };
 
 type MainPageResponse = {
     portfolio: ApiProject[];
@@ -33,9 +33,10 @@ function toIncomingProjects(api: ApiProject[]): IncomingProject[] {
         page_url: p.page_url ?? null,
         dev_env: toDevEnvs(p.dev_env),
         image_url: p.image_url ?? null,
-        role: p.role,
-        result: p.result,
-        content: p.content ?? null,
+        outline: p.outline ?? null,
+        role: p.role ?? null,
+        content: p.content,
+        result: p.result ?? null,
     }))
 }
 

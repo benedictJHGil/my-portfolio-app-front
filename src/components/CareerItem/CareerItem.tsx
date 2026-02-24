@@ -6,7 +6,7 @@ interface Career {
     startdate: string; 
     enddate: string | null; 
     duration: string; 
-    reason: string; 
+    reason?: string | null; 
     department: string; 
     rank: string; 
     work: string; 
@@ -22,6 +22,8 @@ interface CareerItemProps {
 }
 
 function CareerItem({ career }: CareerItemProps) {
+    const hasAnyReason = career.reason && career.reason.trim();
+
     return (
         <div className={styles["career-item"]}> 
             <div className={styles["career-item__left"]}> 
@@ -44,7 +46,9 @@ function CareerItem({ career }: CareerItemProps) {
                 <div className={styles["career-item__etc"]}>
                     <p className={`${styles["career-item__etc-info"]} ${styles["career-item__pay"]}`}>연봉: {career.pay}만원</p>
                     <p className={`${styles["career-item__etc-info"]} ${styles["career-item__location"]}`}>근무지역: {career.location}</p>
-                    <p className={`${styles["career-item__etc-info"]} ${styles["career-item__reason"]}`}>퇴사사유: {career.reason}</p>
+                    {hasAnyReason && (
+                        <p className={`${styles["career-item__etc-info"]} ${styles["career-item__reason"]}`}>퇴사사유: {career.reason}</p>
+                    )}
                 </div>
             </div> 
 
@@ -60,8 +64,14 @@ function CareerItem({ career }: CareerItemProps) {
                 </div>
 
                 <div className="career-item__detail-content">
-                    <p className={styles["career-item__title"]}>업무 내용</p>
-                    <p className={styles["career-item__content"]}>{career.content}</p>
+                    <p className={styles["career-item__title"]}>상세 기술/성과</p>
+                    <ul className="career-item__content__list">
+                        {career.content.split('|').map((item, index) => (
+                            <li key={index} className={styles["career-item__content"]}>
+                                {item.trim()}
+                            </li>
+                        ))}
+                    </ul>
                 </div>
             </div> 
         </div>

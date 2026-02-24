@@ -44,7 +44,7 @@
 
 .career-item__title {
     position: relative;
-    padding-left: 1em;
+    padding-left: 1.2em;
     font-size: 16px;
 }
 
@@ -52,18 +52,21 @@
     content: "●";
     position: absolute;
     left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 14px;
 }
 
 .career-item__content {
     position: relative;
-    padding-left: 2.5em;
+    padding-left: 2.0em;
     font-size: 14px;
 }
 
 .career-item__content::before {
     content: "•";
     position: absolute;
-    left: 1.5em;
+    left: 1.0em;
 }
 
 @media (min-width: 768px) {
@@ -93,6 +96,10 @@
 
     .career-item__etc-info {
         padding-left: 1em;
+        font-size: 16px;
+    }
+
+    .career-item__title::before {
         font-size: 16px;
     }
 

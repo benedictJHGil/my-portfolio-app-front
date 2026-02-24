@@ -27,7 +27,7 @@
 }
 
 .title {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     font-weight: 700;
     margin: 0;
 }
@@ -73,14 +73,26 @@
 }
 
 .k {
-    min-width: 36px;
+    min-width: 95px;
     color: #6b7280;
-    font-size: 15px;
+    font-size: 14px;
 }
 
 .v {
     color: #111827;
-    font-size: 16px;
+    font-size: 15px;
+}
+
+.content-item__list {
+    position: relative;
+    padding-left: 1.5em;
+    font-size: 15px;
+}
+
+.content-item__list::before {
+    content: "•";
+    position: absolute;
+    left: .5em;
 }
 
 .stack {
@@ -94,7 +106,7 @@
 }
 
 .badge {
-    font-size: 12px;
+    font-size: 11px;
     padding: 4px 8px;
     border-radius: 8px;
     background: var(--secondary-color);
@@ -115,11 +127,15 @@
     }
 
     .k {
-        min-width: 44px;
+        min-width: 130px;
         font-size: 18px;
     }
 
     .v {
+        font-size: 19px;
+    }
+
+    .content-item__list {
         font-size: 19px;
     }
 

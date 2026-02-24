@@ -16,7 +16,8 @@ export interface IncomingProject {
 	page_url?: string | null; 
 	dev_env: DevEnv[]; 
 	image_url?: string | null; 
-	role: string; 
-	result: string; 
-	content?: string | null;
+	outline?: string | null;
+	role?: string | null; 
+	content: string;
+	result?: string | null; 
 }

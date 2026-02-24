@@ -6,6 +6,7 @@ import Button from "../Button";
 
 type DetailHeader = {
     title: string
+    type: string
     periodLabel?: string | null
 }
 
@@ -16,7 +17,8 @@ type DetailActions = {
 }
 
 type DetailBody = {
-    content?: string | null
+    outline?: string | null
+    content: string
     role?: string | null
     techStack?: string[]
     result?: string | null
@@ -40,10 +42,13 @@ function DetailBox({ open, idForAria, header, actions, body }: DetailBoxProps) {
         !!(actions?.extra && actions.extra.length > 0)
 
     const hasAnyBody =
+        (body?.outline && body.outline.trim()) ||
         (body?.content && body.content.trim()) ||
         (body?.role && body.role.trim()) ||
         (body?.techStack && body.techStack.length > 0) ||
         (body?.result && body.result.trim())
+
+    const sectionTitle = header.type == "0" ? "주요 구현/기술" : "주요 기여"
 
     useLayoutEffect(() => {
         const el = rootRef.current
@@ -173,16 +178,36 @@ function DetailBox({ open, idForAria, header, actions, body }: DetailBoxProps) {
         <div className={styles["body"]}>
             {body?.techStack && body.techStack.length > 0 && (
                 <div className={styles["kv"]}>
-                    <span className={styles["k"]}>기술</span>
+                    <span className={styles["k"]}>기술 스택</span>
                     <ul className={styles["stack"]}>
                         {body.techStack.map((s) => <li key={s} className={styles["badge"]}>{s}</li>)}
                     </ul>
                 </div>
             )}
+            {body?.outline && (
+                <p className={styles["kv"]}>
+                    <span className={styles["k"]}>프로젝트 개요</span>
+                    <span className={styles["v"]}>{body.outline}</span>
+                </p>
+            )}
             {body?.role && (
                 <p className={styles["kv"]}>
-                    <span className={styles["k"]}>역할</span>
+                    <span className={styles["k"]}>담당 역할</span>
                     <span className={styles["v"]}>{body.role}</span>
+                </p>
+            )}
+            {body?.content && (
+                <p className={styles["kv"]}>
+                    <span className={styles["k"]}>{sectionTitle}</span>
+                    <span className={styles["v"]}>
+                        <ul className={styles["content-item__content"]}> 
+                            {body.content.split('|').map((item, index) => (
+                                <li key={index} className={styles["content-item__list"]}>
+                                    {item.trim()}
+                                </li>
+                            ))}
+                        </ul>
+                    </span>
                 </p>
             )}
             {body?.result && (
@@ -191,7 +216,6 @@ function DetailBox({ open, idForAria, header, actions, body }: DetailBoxProps) {
                     <span className={styles["v"]}>{body.result}</span>
                 </p>
             )}
-            {body?.content && <p className={styles["content"]}>{body.content}</p>}
         </div>
     )}
     </div>
