@@ -12,6 +12,12 @@ type MainPageResponse = {
     workProjects: ApiProject[];
 };
 
+const EMPTY_MAIN: MainPageResponse = {
+  portfolio: [],
+  personalProjects: [],
+  workProjects: [],
+};
+
 function toDevEnvs(envs: DevEnv[]) {
     return envs.map(e => ({
         id: e.id,
@@ -58,7 +64,8 @@ async function fetchMain(): Promise<MainPageResponse> {
         return await response.json();
     } catch (error) {
         console.log(error);
-        throw new Error("error");
+        // throw new Error("error");
+        return EMPTY_MAIN;
     }
 }
 
