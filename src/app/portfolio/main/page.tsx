@@ -52,7 +52,7 @@ async function fetchMain(): Promise<MainPageResponse> {
 
     try {
         const response = await fetch(url, {
-            cache: "no-store",
+            next: { revalidate: 3600 }
         });
 
         if (!response.ok) {
