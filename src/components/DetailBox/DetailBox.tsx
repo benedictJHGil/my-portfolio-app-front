@@ -213,7 +213,15 @@ function DetailBox({ open, idForAria, header, actions, body }: DetailBoxProps) {
             {body?.result && (
                 <p className={styles["kv"]}>
                     <span className={styles["k"]}>성과</span>
-                    <span className={styles["v"]}>{body.result}</span>
+                    <span className={styles["v"]}>
+                        <ul className={styles["content-item__content"]}> 
+                            {body.result.split('|').map((item, index) => (
+                                <li key={index} className={styles["content-item__list"]}>
+                                    {item.trim()}
+                                </li>
+                            ))}
+                        </ul>
+                    </span>
                 </p>
             )}
         </div>
