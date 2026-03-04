@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import styles from './MyImage.module.css';
+import { withCdn } from '@/utils/cdn'
 
 interface MyImageData {
     src: string
@@ -38,7 +39,7 @@ function MyImage({
         return (
             <div className={myImageStyle} style={{cursor: cursorStyle}}>
                 <Image
-                    src={src}
+                    src={withCdn(src)}
                     alt={alt}
                     fill
                     style={{objectFit}}
@@ -51,7 +52,7 @@ function MyImage({
     return (
         <div className={myImageStyle} style={{cursor: cursorStyle}}>
             <Image
-                src={src}
+                src={withCdn(src)}
                 alt={alt}
                 width={width}
                 height={height}

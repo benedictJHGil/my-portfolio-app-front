@@ -12,7 +12,7 @@
     bottom: 0;
     left: 0;
     right: 0;
-    background-image: url("/images/home/background.png");
+    background-image: var(--bg-url);
     background-repeat: no-repeat;
     background-size: 30rem;
     background-position: top;

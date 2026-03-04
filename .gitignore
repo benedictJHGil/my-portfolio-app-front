@@ -52,3 +52,6 @@ out/
 !**/src/main/**/out/
 !**/src/test/**/out/
 .vscode
+
+### image ###
+/public/images/

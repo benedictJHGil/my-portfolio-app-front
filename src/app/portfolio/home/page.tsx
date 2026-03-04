@@ -1,33 +1,20 @@
 import MainButton from "@/components/MainButton/MainButton";
 import SkillScrollImages from "@/components/SkillScrollImages/SkillScrollImages";
+import { withCdn } from '@/utils/cdn'
 import "./home.page.css"
 
 function HomePage() {
-    const skillImgs = [
-        '/images/home/main-skill-img-01.png',
-        '/images/home/main-skill-img-02.png',
-        '/images/home/main-skill-img-03.png',
-        '/images/home/main-skill-img-04.png',
-        '/images/home/main-skill-img-05.png',
-        '/images/home/main-skill-img-06.png',
-        '/images/home/main-skill-img-07.png',
-        '/images/home/main-skill-img-08.png',
-        '/images/home/main-skill-img-09.png',
-        '/images/home/main-skill-img-10.png',
-        '/images/home/main-skill-img-11.png',
-        '/images/home/main-skill-img-12.png',
-        '/images/home/main-skill-img-13.png',
-        '/images/home/main-skill-img-14.png',
-        '/images/home/main-skill-img-15.png',
-        '/images/home/main-skill-img-16.png',
-        '/images/home/main-skill-img-17.png',
-        '/images/home/main-skill-img-18.png',
-        '/images/home/main-skill-img-19.png',
-        '/images/home/main-skill-img-20.png',
-    ]
-
+    const skillImgs = Array.from({ length: 20 }, (_, i) =>
+        `${withCdn("/images/home/main-skill-img")}-${String(i + 1).padStart(2, '0')}.png`
+    )
+    
     return (
-        <div className="home-container">
+        <div 
+            className="home-container"
+            style={{
+                '--bg-url': `url(${withCdn("/images/home/background.png")})`
+            } as React.CSSProperties}
+        >
             <div className="main-title">
                 <p className="title">유일한 포트폴리오</p>
             </div>

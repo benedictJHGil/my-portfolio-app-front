@@ -8,6 +8,7 @@ import DetailBox from '../DetailBox/DetailBox'
 import styles from './MainPageList.module.css'
 import type { IncomingProject } from '@/types/project'
 import { adaptProjectsToUI } from '@/adapters/adaptProjectsToUI'
+import { withCdn } from '@/utils/cdn'
 
 interface Props {
 	sectionTitle: string
@@ -69,7 +70,7 @@ function MainPageList({ sectionTitle, items }: Props) {
 								{item.imageUrl ? (
 									<div className={styles["image-wrap"]}>
 										<Image
-											src={item.imageUrl}
+											src={withCdn(item.imageUrl)}
 											alt={item.title}
 											fill
 											sizes="(max-width: 768px) 80vw, 320px"

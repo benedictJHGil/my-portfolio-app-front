@@ -1,4 +1,5 @@
 import "./about.page.css"
+import { notFound } from "next/navigation";
 import ProfileDetails from "@/components/ProfileDetails/ProfileDetails";
 import SkillSection from "@/components/SkillSection/SkillSection";
 import CareerSection from "@/components/CareerSection/CareerSection";
@@ -19,19 +20,6 @@ type AboutPageResponse = {
   careers: Career[];
   academics: Academic[];
   certificates: Certificate[];
-};
-
-const EMPTY_ABOUT: AboutPageResponse = {
-  profile: {
-    id: 0,
-    nameKr: "",
-    nameEn: "",
-  },
-  skills: [],
-  totalDate: "",
-  careers: [],
-  academics: [],
-  certificates: [],
 };
 
 function toUiSkills(apiSkills: ApiSkill[]): UiSkill[] {
@@ -56,14 +44,14 @@ async function fetchAbout(): Promise<AboutPageResponse> {
         });
 
         if (!response.ok) {
-            throw new Error(`${response.status} ${response.statusText}`);
+            console.log(`${response.status} ${response.statusText}`);
+            notFound()
         }
 
         return await response.json();
     } catch (error) {
         console.log(error);
-        // throw new Error("error");
-        return EMPTY_ABOUT;
+        notFound()
     }
 }
 

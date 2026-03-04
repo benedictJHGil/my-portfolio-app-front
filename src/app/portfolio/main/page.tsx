@@ -1,4 +1,5 @@
 import MainPageList from "@/components/MainPageList/MainPageList";
+import { notFound } from "next/navigation";
 import type { IncomingProject, DevEnv } from "@/types/project"
 import "./main.page.css"
 
@@ -8,12 +9,6 @@ type MainPageResponse = {
     portfolio: ApiProject[];
     personalProjects: ApiProject[];
     workProjects: ApiProject[];
-};
-
-const EMPTY_MAIN: MainPageResponse = {
-  portfolio: [],
-  personalProjects: [],
-  workProjects: [],
 };
 
 function toDevEnvs(envs: DevEnv[]) {
@@ -56,14 +51,14 @@ async function fetchMain(): Promise<MainPageResponse> {
         });
 
         if (!response.ok) {
-            throw new Error(`${response.status} ${response.statusText}`);
+            console.log(`${response.status} ${response.statusText}`);
+            notFound()
         }
 
         return await response.json();
     } catch (error) {
         console.log(error);
-        // throw new Error("error");
-        return EMPTY_MAIN;
+        notFound()
     }
 }
 
