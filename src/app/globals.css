@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 :root {
-    --primary-color: #B92134;
-    --secondary-color: #F6CED3;
+    --primary-color: #243B55;
+    --secondary-color: #DCE6F2;
     --arrow-size-mo: 26px;
     --arrow-size-ta: 48px;
     --projects-wrapper-gap-mo: .3rem;
