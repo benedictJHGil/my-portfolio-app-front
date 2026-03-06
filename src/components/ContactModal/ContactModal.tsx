@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react"
+import { notFound } from "next/navigation";
 import "./ContactModal.page.css"
 import { AiOutlineClose } from 'react-icons/ai'
 import Button from "../Button";
@@ -33,9 +34,39 @@ function ContactModal({ isOpen, onClose }: ContactData) {
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         console.log("문의 내용:", form);
-        alert("현재 개발중에 있습니다.");
-        setForm({ title: "", type: "", contact: "", message: "" });
-        onClose();
+
+        const confirmed = window.confirm("문의 내용을 전송하시겠습니까?");
+
+        if (!confirmed) return;
+
+        const BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
+        if (!BASE_URL) throw new Error('NEXT_PUBLIC_API_BASE_URL is not set');
+
+        const url = `${BASE_URL}/api/contact`
+
+        try {
+            const response = await fetch(url, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(form),
+            });
+
+            if (!response.ok) {
+                console.log(`${response.status} ${response.statusText}`);
+                notFound()
+            }
+
+            const data = await response.json();
+            alert(data.message);
+            
+            setForm({ title: "", type: "", contact: "", message: "" });
+            onClose();
+        } catch (error) {
+            console.log(error);
+            alert("문의 전송에 실패했습니다. 잠시 후 다시 시도해주세요.");
+        }
     };
 
     if (!isOpen) return null;
@@ -54,7 +85,6 @@ function ContactModal({ isOpen, onClose }: ContactData) {
                     </button>
                 </div>
                 <hr />
-                <h2 style={{ color: 'red', fontSize: '18px', textAlign: 'center' }}>현재 개발중에 있습니다.</h2>
                 <form onSubmit={handleSubmit} className="contact-form">
                     <div className="form-row">
                         <label htmlFor="title" className="form-label">제목</label>
