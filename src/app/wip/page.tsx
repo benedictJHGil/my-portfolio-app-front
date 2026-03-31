@@ -3,6 +3,8 @@ import SkillScrollImages from "@/components/SkillScrollImages/SkillScrollImages"
 import { withCdn } from '@/utils/cdn'
 
 async function WipPage() {
+    const DISCRIPTION_DATE = process.env.NEXT_PUBLIC_DISCRIPTION_DATE;
+
     const projectImgs = [
         '/images/main/portfoilo.jpg',
         '/images/main/grunwelt.png',
@@ -22,8 +24,15 @@ async function WipPage() {
         } as React.CSSProperties}
     >
         <div className="inner">
-            <p className="discription-title">현재 포트폴리오 리뉴얼중입니다.</p>
-            <p className="discription-detail">작업이 끝나면 아래와 같은 프로젝트들을 확인하실 수 있습니다.</p>
+            <div className="discription">
+                <p className="discription-title">현재 포트폴리오 리뉴얼중입니다.</p>
+                <p className="discription-detail">작업이 끝나면 아래와 같은 프로젝트들을 확인하실 수 있습니다.</p>
+                {DISCRIPTION_DATE && (
+                    <p className="discription-date">
+                        (완료 예정 시간 : <span className="completion-time">{DISCRIPTION_DATE}</span>)
+                    </p>
+                )}
+            </div>
             <section className="portfolio-contents">
                 <SkillScrollImages images={projectImgs} diraction="left" duration="40s"></SkillScrollImages>
             </section>
