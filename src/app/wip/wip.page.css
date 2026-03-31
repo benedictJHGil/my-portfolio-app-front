@@ -21,8 +21,13 @@
 }
 
 .inner {
-    margin-top: 13rem;
+    margin-top: 12rem;
     text-align: center;
+}
+
+.discription {
+    margin-bottom: 1.5rem;
+    line-height: 1.8;
 }
 
 .discription-title {
@@ -31,7 +36,15 @@
 
 .discription-detail {
     font-Size: 1.0rem;
-    margin-bottom: 1.5rem;
+}
+
+.discription-date {
+    font-Size: .8rem;
+    font-weight: 600;
+}
+
+.completion-time {
+    color: var(--primary-color);
 }
 
 .portfolio-info {
@@ -54,7 +67,11 @@
     }
 
     .inner {
-        margin-top: 15rem;
+        margin-top: 14rem;
+    }
+
+    .discription {
+        margin-bottom: 2rem;
     }
 
     .discription-title {
@@ -63,7 +80,10 @@
 
     .discription-detail {
         font-Size: 1.8rem;
-        margin-bottom: 2rem;
+    }
+
+    .discription-date {
+        font-Size: 1.4rem;
     }
 
     .portfolio-info {
