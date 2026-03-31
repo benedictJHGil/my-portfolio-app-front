@@ -1,4 +1,4 @@
-import MainPageList from "@/components/MainPageList/MainPageList";
+import MainPageListWrapper from '@/components/MainPageList/MainPageListWrapper'
 import { notFound } from "next/navigation";
 import type { IncomingProject, DevEnv } from "@/types/project"
 import "./main.page.css"
@@ -78,11 +78,11 @@ async function MainPage() {
                 <p className="headline-content">유일한 포트폴리오에 오신 것을 환영합니다!</p>
             </div>
             <div className="main-page-projects">
-                <MainPageList sectionTitle="포트폴리오 프로젝트" items={portfolio} />
+                <MainPageListWrapper sectionTitle="포트폴리오 프로젝트" items={portfolio} />
                 <hr />
-                <MainPageList sectionTitle="개인 프로젝트" items={personalProjects} />
+                <MainPageListWrapper sectionTitle="개인 프로젝트" items={personalProjects} />
                 <hr />
-                <MainPageList sectionTitle="업무 프로젝트" items={workProjects} />
+                <MainPageListWrapper sectionTitle="업무 프로젝트" items={workProjects} />
             </div>
         </div>
     )
