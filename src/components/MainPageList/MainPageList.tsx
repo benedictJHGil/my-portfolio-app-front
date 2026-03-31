@@ -1,12 +1,14 @@
 'use client'
 
 import React, { useMemo, useState, useCallback, useEffect } from 'react'
+import { useSearchParams, useRouter } from 'next/navigation'
 import Image from 'next/image'
 import Carousel from '../Carousel/Carousel'
 import CarouselItem from '../Carousel/CarouselItem'
 import DetailBox from '../DetailBox/DetailBox'
+import ProjectDetail from '../ProjectDetail/ProjectDetail'
 import styles from './MainPageList.module.css'
-import type { IncomingProject } from '@/types/project'
+import type { IncomingProject, UIProject } from '@/types'
 import { adaptProjectsToUI } from '@/adapters/adaptProjectsToUI'
 import { withCdn } from '@/utils/cdn'
 
@@ -19,6 +21,7 @@ function MainPageList({ sectionTitle, items }: Props) {
     const uiItems = useMemo(() => adaptProjectsToUI(items), [items])
 
 	const [openItemId, setOpenItemId] = useState<number | null>(null)
+	const [selectedProject, setSelectedProject] = useState<UIProject | null>(null)
 
 	const openItem = useMemo(
 		() => uiItems.find(i => i.id === openItemId) ?? null,
@@ -26,8 +29,8 @@ function MainPageList({ sectionTitle, items }: Props) {
 	)
 
 	const sectionDetailId = useMemo(() => {
-		const slug = sectionTitle.replace(/\s+/g, '-').toLowerCase()
-		return `detail-${slug}`
+		const tag = sectionTitle.replace(/\s+/g, '-').toLowerCase()
+		return `detail-${tag}`
 	}, [sectionTitle])
 
 	const toggleItem = useCallback((id: number) => {
@@ -46,6 +49,31 @@ function MainPageList({ sectionTitle, items }: Props) {
 			e.preventDefault()
 			toggleItem(id)
 		}
+	}
+
+	const searchParams = useSearchParams()
+	const router = useRouter()
+
+	useEffect(() => {
+		const slug = searchParams.get('project')
+		if (!slug) return
+
+		const found = uiItems.find(item => item.slug === slug)
+		if (found) {
+			setSelectedProject(found)
+		}
+	}, [searchParams, uiItems])
+
+	const handleOpenModal = () => {
+		if (openItem) {
+			router.push(`/portfolio/main?project=${openItem.slug}`, { scroll: false })
+			setSelectedProject(openItem)
+		}
+	}
+
+	const handleCloseModal = () => {
+		setSelectedProject(null)
+		router.push('/portfolio/main', { scroll: false })
 	}
 
 	return (
@@ -113,7 +141,25 @@ function MainPageList({ sectionTitle, items }: Props) {
 					techStack: openItem?.techStack ?? [],
 					result: openItem?.result ?? null,
 				}}
+				details={{
+					slug: openItem?.slug,
+					hasDetail: openItem?.hasDetail,
+				}}
+				onOpenDetail={handleOpenModal}
 			/>
+
+			{selectedProject && (
+				<ProjectDetail
+					actions={{
+						github: openItem?.github,
+						site: openItem?.site,
+						extra: openItem?.extra,
+					}}
+					stacks={openItem?.techStack ?? []}
+					project={selectedProject}
+					onClose={handleCloseModal}
+				/>
+			)}
 		</>
 	)
 }

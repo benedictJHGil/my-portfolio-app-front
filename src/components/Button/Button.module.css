@@ -2,6 +2,7 @@
     color: #FFF;
     font-size: 14px;
     background-color: var(--primary-color);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     border-radius: 5px;
     cursor: pointer;
     width: 6rem;
@@ -9,6 +10,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.button:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
 }
 
 .main-btn {
@@ -35,6 +41,16 @@
 
 .nav-button.active {
     background-color: var(--primary-color);
+}
+
+.btn-detail {
+    font-weight: 600;
+    color: var(--primary-color);
+    background: none;
+}
+
+.btn-detail:hover {
+    text-decoration: underline;
 }
 
 .is-img {

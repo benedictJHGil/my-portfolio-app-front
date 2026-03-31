@@ -54,5 +54,9 @@ export function adaptProjectsToUI(items: IncomingProject[]): UIProject[] {
 		// Slide
 		imageUrl: p.image_url || undefined,
 		priority: idx === 0,
+
+		// Detail
+		slug: p.slug,
+		hasDetail: p.hasDetail
 	}))
 }

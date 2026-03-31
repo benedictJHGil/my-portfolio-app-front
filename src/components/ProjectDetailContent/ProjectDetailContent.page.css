@@ -1,0 +1,87 @@
+.tab-section {
+    display: flex;
+    flex-direction: column;
+    margin: 1rem 0;
+    gap: 20px;
+}
+
+.layer {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.label {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+.card {
+    border: 1px solid var(--secondary-color);
+    border-radius: 10px;
+    padding: 1rem;
+}
+
+.title {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-bottom: .4rem;
+}
+
+.desc {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #222;
+}
+
+.block {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin: .4rem 0;
+}
+
+.block ul {
+    display: flex;
+    flex-direction: column;
+    padding-left: .6em;
+    gap: 6px;
+}
+
+.block li {
+    position: relative;
+    font-size: 14px;
+    line-height: 1.5;
+    padding-left: 1em;
+}
+
+.block li::before {
+    content: "●";
+    position: absolute;
+    left: 0;
+    font-size: 13px;
+}
+
+@media (min-width: 768px) {
+    .label {
+        font-size: 14px;
+    }
+
+    .title {
+        font-size: 17px;
+    }
+
+    .desc {
+        font-size: 16px;
+    }
+
+    .block li {
+        font-size: 16px;
+    }
+
+    .block li::before {
+        font-size: 14px;
+    }
+}

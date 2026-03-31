@@ -3,6 +3,8 @@
 import React, { useEffect, useLayoutEffect, useRef } from 'react'
 import styles from './DetailBox.module.css'
 import Button from "../Button";
+import ActionsButton from '../ActionsButton/ActionsButton';
+import TechStack from '../TechStack/TechStack';
 
 type DetailHeader = {
     title: string
@@ -24,22 +26,24 @@ type DetailBody = {
     result?: string | null
 }
 
+type DetailDetails = {
+    slug?: string | null
+    hasDetail?: boolean | null
+}
+
 interface DetailBoxProps {
     open: boolean
     idForAria: string
     header: DetailHeader
     actions?: DetailActions
     body?: DetailBody
+    details?: DetailDetails
+    onOpenDetail?: () => void
 }
 
-function DetailBox({ open, idForAria, header, actions, body }: DetailBoxProps) {
+function DetailBox({ open, idForAria, header, actions, body, details, onOpenDetail }: DetailBoxProps) {
     const rootRef = useRef<HTMLDivElement>(null)
     const titleRef = useRef<HTMLHeadingElement>(null)
-
-    const hasAnyAction =
-        !!(actions?.github && actions.github.trim()) ||
-        !!(actions?.site && actions.site.trim()) ||
-        !!(actions?.extra && actions.extra.length > 0)
 
     const hasAnyBody =
         (body?.outline && body.outline.trim()) ||
@@ -135,69 +139,41 @@ function DetailBox({ open, idForAria, header, actions, body }: DetailBoxProps) {
         </div>
     </div>
 
-    {hasAnyAction && (
-        <div className={styles["actions"]} role="group" aria-label="프로젝트 링크">
-            {actions?.github && actions.github.trim() && (
-                <Button
-                    href={actions.github}
-                    className={"button is-img"}
-                    target={"_blank"}
-                    rel={"noopener noreferrer"}
-                    image={{src: "/images/icon/github.png", alt: "GitHub", imgClassName: "btn-img"}}
-                >
-                    GitHub
-                </Button>
-            )}
-            {actions?.site && actions.site.trim() && (
-                <Button
-                    href={actions.site}
-                    className={"button is-img"}
-                    target={"_blank"}
-                    rel={"noopener noreferrer"}
-                    image={{src: "/images/icon/link.png", alt: "link", imgClassName: "btn-img"}}
-                >
-                    Link
-                </Button>
-            )}
-            {actions?.extra?.map((x) => (
-                <Button
-                    key={x.url}
-                    href={x.url}
-                    className={"button is-img"}
-                    target={"_blank"}
-                    rel={"noopener noreferrer"}
-                    image={{src: "/images/icon/github.png", alt: "GitHub", imgClassName: "btn-img"}}
-                >
-                    {x.label}
-                </Button>
-            ))}
-        </div>
-    )}
+    <div className={styles["button-group"]}>
+        <ActionsButton
+            actions={actions}
+        />
+
+        {details?.hasDetail && (
+            <Button
+                onClick={onOpenDetail}
+                className={"button btn-detail"}
+            >
+                자세히 보기
+            </Button>
+        )}
+    </div>
 
     {hasAnyBody && (
         <div className={styles["body"]}>
-            {body?.techStack && body.techStack.length > 0 && (
-                <div className={styles["kv"]}>
-                    <span className={styles["k"]}>기술 스택</span>
-                    <ul className={styles["stack"]}>
-                        {body.techStack.map((s) => <li key={s} className={styles["badge"]}>{s}</li>)}
-                    </ul>
-                </div>
-            )}
+            <TechStack 
+                stacks={body.techStack}
+                isDetailBox={true}
+            />
             {body?.outline && (
-                <p className={styles["kv"]}>
+                <div className={styles["kv"]}>
                     <span className={styles["k"]}>프로젝트 개요</span>
                     <span className={styles["v"]}>{body.outline}</span>
-                </p>
+                </div>
             )}
             {body?.role && (
-                <p className={styles["kv"]}>
+                <div className={styles["kv"]}>
                     <span className={styles["k"]}>담당 역할</span>
                     <span className={styles["v"]}>{body.role}</span>
-                </p>
+                </div>
             )}
             {body?.content && (
-                <p className={styles["kv"]}>
+                <div className={styles["kv"]}>
                     <span className={styles["k"]}>{sectionTitle}</span>
                     <span className={styles["v"]}>
                         <ul className={styles["content-item__content"]}> 
@@ -208,10 +184,10 @@ function DetailBox({ open, idForAria, header, actions, body }: DetailBoxProps) {
                             ))}
                         </ul>
                     </span>
-                </p>
+                </div>
             )}
             {body?.result && (
-                <p className={styles["kv"]}>
+                <div className={styles["kv"]}>
                     <span className={styles["k"]}>성과</span>
                     <span className={styles["v"]}>
                         <ul className={styles["content-item__content"]}> 
@@ -222,7 +198,7 @@ function DetailBox({ open, idForAria, header, actions, body }: DetailBoxProps) {
                             ))}
                         </ul>
                     </span>
-                </p>
+                </div>
             )}
         </div>
     )}

@@ -3,6 +3,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Hahmlet } from "next/font/google";
 import "./globals.css";
+import "./modal.css";
 
 const hahmlet = Hahmlet({
     display: "swap",

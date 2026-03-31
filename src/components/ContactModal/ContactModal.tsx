@@ -2,9 +2,9 @@
 
 import { useState } from "react"
 import { notFound } from "next/navigation";
-import "./ContactModal.page.css"
 import { AiOutlineClose } from 'react-icons/ai'
 import Button from "../Button";
+import styles from "./ContactModal.module.css"
 
 interface ContactData {
     isOpen: boolean
@@ -85,19 +85,19 @@ function ContactModal({ isOpen, onClose }: ContactData) {
                     </button>
                 </div>
                 <hr />
-                <form onSubmit={handleSubmit} className="contact-form">
-                    <div className="form-row">
-                        <label htmlFor="title" className="form-label">제목</label>
-                        <div className="form-field">
+                <form onSubmit={handleSubmit} className={styles["contact-form"]}>
+                    <div className={styles["form-row"]}>
+                        <label htmlFor="title" className={styles["form-label"]}>제목</label>
+                        <div className={styles["form-field"]}>
                             <input type="text" name="title" value={form.title} onChange={handleChange} required />
                         </div>
                     </div>
-                    <div className="form-row">
-                        <span className="form-label">문의 종류</span>
-                        <div className="form-field">
-                            <div className="radio-group">
+                    <div className={styles["form-row"]}>
+                        <span className={styles["form-label"]}>문의 종류</span>
+                        <div className={styles["form-field"]}>
+                            <div className={styles["radio-group"]}>
                                 {contactTypes.map((type) => (
-                                    <label key={type} className="radio-item">
+                                    <label key={type} className={styles["radio-item"]}>
                                         <input
                                             type="radio"
                                             name="type"
@@ -112,19 +112,19 @@ function ContactModal({ isOpen, onClose }: ContactData) {
                             </div>
                         </div>
                     </div>
-                    <div className="form-row">
-                        <label htmlFor="contact" className="form-label">답변받을 곳</label>
-                        <div className="form-field">
+                    <div className={styles["form-row"]}>
+                        <label htmlFor="contact" className={styles["form-label"]}>답변받을 곳</label>
+                        <div className={styles["form-field"]}>
                             <input type="text" name="contact" value={form.contact} onChange={handleChange} required />
                         </div>
                     </div>
-                    <div className="form-row">
-                        <label htmlFor="message" className="form-label">내용</label>
-                        <div className="form-field">
+                    <div className={styles["form-row"]}>
+                        <label htmlFor="message" className={styles["form-label"]}>내용</label>
+                        <div className={styles["form-field"]}>
                             <textarea id="message" name="message" rows={5} value={form.message} onChange={handleChange} required />
                         </div>
                     </div>
-                    <div className="form-actions">
+                    <div className={styles["form-actions"]}>
                         <Button
                             type={"submit"}
                             className={"button"}
