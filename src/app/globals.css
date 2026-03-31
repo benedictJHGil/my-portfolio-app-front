@@ -26,6 +26,11 @@ body {
     margin: 0 auto; */
 }
 
+body.modal-open {
+    overflow: hidden;
+    /* padding-right: 15px; */
+}
+
 .page-wrapper {
     max-width: 1280px;
     margin: 0 auto;

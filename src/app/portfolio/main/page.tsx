@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import type { IncomingProject, DevEnv } from "@/types/project"
 import "./main.page.css"
 
-type ApiProject = { id: number; title: string; type: string; startdate?: string | null; enddate?: string | null; git_rep_url?: string | null; page_url?: string | null; dev_env: DevEnv[]; image_url?: string | null; outline?: string | null; role?: string | null; content: string; result?: string | null; };
+type ApiProject = { id: number; title: string; type: string; startdate?: string | null; enddate?: string | null; git_rep_url?: string | null; page_url?: string | null; dev_env: DevEnv[]; image_url?: string | null; outline?: string | null; role?: string | null; content: string; result?: string | null; slug: string; hasDetail: boolean; };
 
 type MainPageResponse = {
     portfolio: ApiProject[];
@@ -36,6 +36,8 @@ function toIncomingProjects(api: ApiProject[]): IncomingProject[] {
         role: p.role ?? null,
         content: p.content,
         result: p.result ?? null,
+        slug: p.slug,
+        hasDetail: p.hasDetail,
     }))
 }
 

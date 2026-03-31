@@ -37,22 +37,10 @@
     color: #6b7280;
 }
 
-.actions {
+.button-group {
     display: flex;
-    gap: 8px;
-    margin-top: 10px;
-    margin-bottom: 8px;
-    flex-wrap: wrap;
-}
-
-.button {
-    display: inline-block;
-    font-size: 12px;
-    padding: 6px 10px;
-    border-radius: 8px;
-    border: 1px solid #e5e7eb;
-    text-decoration: none;
-    color: #111827;
+    align-items: center;
+    margin: .4rem 0 .8rem;
 }
 
 .body {
