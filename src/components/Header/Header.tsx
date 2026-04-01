@@ -25,7 +25,7 @@ function Header() {
     return (
         <header className={styles["header"]}>
             <div className={styles["page-logo"]}>
-                <Link href="/portfolio/home">
+                <Link href="/portfolio/main">
                     <MyImage
                         src={"/images/page_loge.png"}
                         alt={"유일한 포트폴리오"}
