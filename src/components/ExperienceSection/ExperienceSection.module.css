@@ -30,11 +30,11 @@
 }
 
 .collapsed {
-    max-height: 660px;
+    max-height: 900px;
 }
 
 .expanded {
-    max-height: 3000px;
+    max-height: 4000px;
 }
 
 .timeline-line {
