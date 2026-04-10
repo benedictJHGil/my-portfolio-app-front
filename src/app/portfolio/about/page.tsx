@@ -62,7 +62,7 @@ async function fetchAbout(): Promise<AboutPageResponse> {
 
         return await response.json();
     } catch (error) {
-        console.log(error);
+        console.log(error)
         notFound()
     }
 }

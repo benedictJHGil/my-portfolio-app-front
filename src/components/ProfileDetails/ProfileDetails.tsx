@@ -35,7 +35,7 @@ function ProfileDetails({ profile }: ProfileDetailsProps) {
         let result: React.ReactNode[] = [text];
 
         highlights.forEach((keyword) => {
-            result = result.flatMap((part) => {
+            result = result.flatMap((part): React.ReactNode[] => {
                 if (typeof part !== "string") return [part];
 
                 return part.split(keyword).flatMap((splitPart, index, arr) => {
