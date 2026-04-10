@@ -5,6 +5,7 @@ import { cx } from '@/utils/cx'
 import styles from './ContactSection.module.css'
 import ContactModal from "../ContactModal/ContactModal";
 import Button from "../Button";
+import { withCdn } from "@/utils/cdn";
 
 interface Contact {
     id: number; 
@@ -111,7 +112,7 @@ function ContactSection({ contact }: ContactSectionProps) {
                             YouTube
                         </Button>
                         <Button
-                            href={contact.resume ? contact.resume : "#"}
+                            href={contact.resume ? withCdn(contact.resume) : "#"}
                             className={"button has-icon is-reverse"}
                             target={"_blank"}
                             rel={"noopener noreferrer"}
