@@ -21,6 +21,7 @@ interface ButtonProps {
         fill?: boolean
         imgClassName?: string
         isClickable?: boolean
+        hasIcon?: boolean
     }
 }
 
@@ -38,9 +39,10 @@ function Button({
     const {
         src = "",
         alt = "",
-        fill = true,
+        fill = false,
         imgClassName = "",
-        isClickable = true
+        isClickable = true,
+        hasIcon = false
     } = image ?? {};
 
     const classNameTrim = className?.trim().split(" ")
@@ -73,9 +75,10 @@ function Button({
                         fill={fill}
                         className={imgClasses}
                         isClickable={isClickable}
+                        hasIcon={hasIcon}
                     />
                 )}
-                {children}
+                <p>{children}</p>
             </Link>
         )
     }
@@ -93,9 +96,10 @@ function Button({
                     fill={fill}
                     className={imgClasses}
                     isClickable={isClickable}
+                    hasIcon={hasIcon}
                 />
             )}
-            {children}
+            <p>{children}</p>
         </button>
     )
 }

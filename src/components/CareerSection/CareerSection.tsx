@@ -1,9 +1,11 @@
-import "./CareerSection.page.css"
+import { cx } from '@/utils/cx'
+import styles from "./CareerSection.module.css"
 import CareerItem from "../CareerItem/CareerItem";
 
 interface Career {
     id: number; 
-    name: string; 
+    name: string;
+    nameEn: string;
     startdate: string; 
     enddate: string | null; 
     duration: string; 
@@ -19,19 +21,19 @@ interface Career {
 }
 
 interface CareerSectionProps {
-  total: string;
-  careers: Career[];
+    total: string;
+    careers: Career[];
 }
 
-function CareerSection( { total, careers }: CareerSectionProps) {
+function CareerSection( { careers }: CareerSectionProps) {
     return (
-        <div className="career-inner">
-            <h2 className="section-title">
+        <div className={cx(styles, "career-inner")}>
+            <h2 className={cx(styles, "section-title")}>
                 경력
-                <p className="total-duration">총 {total}</p>
+                {/* <p className="total-duration">총 {total}</p> */}
             </h2>
             
-            <div className="career-grid">
+            <div className={cx(styles, "grid", "career-grid")}>
                 {careers.map(career => (
                     <CareerItem key={career.id} career={career} />
                 ))}

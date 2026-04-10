@@ -17,6 +17,7 @@ function toDevEnvs(envs: DevEnv[]) {
         name: e.name,
         type: e.type,
         level: e.level,
+        category: e.category,
         logo_url: e.logo_url,
     }))
 }

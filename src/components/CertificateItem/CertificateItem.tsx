@@ -15,16 +15,17 @@ interface CertificateItemProps {
 }
 
 function CertificateItem({ certificate }: CertificateItemProps) {
-    const isLevel = !!certificate.level;
-    const isScore = !!certificate.score;
+    // const isLevel = !!certificate.level;
+    // const isScore = !!certificate.score;
 
     return (
-        <div className={styles["certificate-item"]}>
-            <div className={styles["certificate-item__date"]}>
+        <>
+        {/* <div className={styles["certificate-item"]}> */}
+            {/* <div className={styles["certificate-item__date"]}>
                 {certificate.date}
-            </div>
+            </div> */}
             <p className={styles["certificate-item__name"]}>{certificate.name}</p>
-            <p className={styles["certificate-item-mid"]}>
+            {/* <p className={styles["certificate-item-mid"]}>
                 {isLevel && (
                     <span className={styles["certificate-item__level"]}>{certificate.level}{' / '}</span>
                 )}
@@ -33,8 +34,9 @@ function CertificateItem({ certificate }: CertificateItemProps) {
                 )}                
                 <span className={styles["certificate-item__evaluate"]}>{certificate.evaluate}</span>
             </p>
-            <p className={styles["certificate-item__organization"]}>{certificate.organization}</p>
-        </div>
+            <p className={styles["certificate-item__organization"]}>{certificate.organization}</p> */}
+        {/* </div> */}
+        </>
     )
 }
 

@@ -1,8 +1,10 @@
 @import "tailwindcss";
 
 :root {
-    --primary-color: #243B55;
-    --secondary-color: #DCE6F2;
+    --primary-main: #243B55;
+    --primary-light: #3A5A7A;
+    --secondary-main: #DCE6F2;
+    --secondary-dark: #C5D5E8;
     --arrow-size-mo: 26px;
     --arrow-size-ta: 48px;
     --projects-wrapper-gap-mo: .3rem;
@@ -10,7 +12,7 @@
 }
 
 html {
-
+    scroll-behavior: smooth;
 }
 
 body {

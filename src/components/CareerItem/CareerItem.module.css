@@ -1,11 +1,17 @@
 .career-item {
-    padding: 1rem 0;
     display: flex;
     flex-direction: column;
-    gap: .6rem;
+    padding: .6rem .8rem;
+    border-radius: 10px;
+    transition: all 0.2s ease;
 }
 
-.career-item:not(:last-child) {
+.career-item:hover {
+    background: rgba(36, 59, 85, 0.05);
+    transform: translateX(4px);
+}
+
+/* .career-item:not(:last-child) {
     border-bottom: 1px solid #ddd;
 }
 
@@ -14,29 +20,34 @@
     display: flex;
     flex-direction: column;
     gap: .6rem;
+} */
+
+.career-item__top {
+    display: flex;
+    align-items: end;
+    gap: .8rem;
 }
 
 .career-item__name {
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 600;
 }
 
-.career-item__work-info{
+/* .career-item__work-info{
     font-size: 16px;
-}
+} */
 
 .career-item__duration {
-    font-size: 14px;
-    font-weight: 600;
+    font-size: 12px;
 }
 
-.career-item__etc-info {
+/* .career-item__etc-info {
     position: relative;
     padding-left: .8em;
     font-size: 14px;
-}
+} */
 
-.career-item__etc-info::before {
+/* .career-item__etc-info::before {
     content: "•";
     position: absolute;
     left: 0;
@@ -55,30 +66,36 @@
     top: 50%;
     transform: translateY(-50%);
     font-size: 14px;
-}
+} */
 
 .career-item__content {
-    position: relative;
-    padding-left: 2.0em;
+    /* position: relative;
+    padding-left: 2.0em; */
     font-size: 14px;
 }
 
-.career-item__content::before {
+/*.career-item__content::before {
     content: "•";
     position: absolute;
     left: 1.0em;
-}
+} */
 
 @media (min-width: 768px) {
     .career-item {
-        padding: 1.5rem 0;
+        /* padding: 1.5rem 0;
         display: grid;
         grid-template-columns: var(--career-w, 22rem) 1fr;
-        gap: 0;
+        gap: 0; */
+        padding: .8rem 1rem;
+        gap: .4rem;
     }
 
-    .career-item__left,
+    /* .career-item__left,
     .career-item__right {
+        gap: 1rem;
+    } */
+
+    .career-item__top {
         gap: 1rem;
     }
 
@@ -86,22 +103,22 @@
         font-size: 20px;
     }
 
-    .career-item__work-info{
+    /* .career-item__work-info{
         font-size: 16px;
-    }
+    } */
 
     .career-item__duration {
-        font-size: 16px;
+        font-size: 14px;
     }
 
-    .career-item__etc-info {
+    /* .career-item__etc-info {
         padding-left: 1em;
         font-size: 16px;
-    }
+    } */
 
-    .career-item__title::before {
+    /* .career-item__title::before {
         font-size: 16px;
-    }
+    } */
 
     .career-item__content {
         font-size: 16px;

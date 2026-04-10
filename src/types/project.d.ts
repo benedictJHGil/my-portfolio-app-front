@@ -2,7 +2,8 @@ export interface DevEnv {
 	id: number
 	name: string
 	type: string
-	level: string
+	level: number
+	category: string
 	logo_url: string
 }
 

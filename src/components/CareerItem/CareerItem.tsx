@@ -2,7 +2,8 @@ import styles from "./CareerItem.module.css"
 
 interface Career {
     id: number; 
-    name: string; 
+    name: string;
+    nameEn: string;
     startdate: string; 
     enddate: string | null; 
     duration: string; 
@@ -18,15 +19,15 @@ interface Career {
 }
 
 interface CareerItemProps {
-  career: Career;
+    career: Career;
 }
 
 function CareerItem({ career }: CareerItemProps) {
-    const hasAnyReason = career.reason && career.reason.trim();
+    // const hasAnyReason = career.reason && career.reason.trim();
 
     return (
-        <div className={styles["career-item"]}> 
-            <div className={styles["career-item__left"]}> 
+        <a href={`#${career.nameEn}`} className={styles["career-item"]}> 
+            {/* <div className={styles["career-item__left"]}> 
                 <div className="career-item__top">
                     <p className={styles["career-item__name"]}>{career.name}</p>
                     <p className={styles["career-item__work-info"]}>
@@ -73,8 +74,17 @@ function CareerItem({ career }: CareerItemProps) {
                         ))}
                     </ul>
                 </div>
-            </div> 
-        </div>
+            </div>  */}
+
+            <div className={styles["career-item__top"]}>
+                <p className={styles["career-item__name"]}>{career.name}</p>
+                <p className={styles["career-item__duration"]}>
+                    {career.startdate} ~ {career.enddate} 
+                    <span className="career-item__total-duration"> ({career.duration})</span>
+                </p>
+            </div>
+            <p className={styles["career-item__content"]}>{career.task}</p>
+        </a>
     )
 }
 

@@ -1,0 +1,162 @@
+.profile-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.profile-inner {
+    margin-top: 2.5rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.profile-details-section {
+    margin: 1.6rem 0 0 0;
+    display: flex;
+    flex-direction: column;
+    gap: .8rem;
+}
+
+.profile-item-group {
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.detail-item:nth-child(-n+2) {
+    font-weight: 600;
+}
+
+.detail-item:last-child {
+    margin-top: .4rem;
+}
+
+.highlight {
+    color: var(--primary-main);
+    font-weight: 600;
+}
+
+.profile-button-group {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.profile-buttons {
+    display: flex;
+    gap: .4rem;
+}
+
+.profile-summary-section {
+    margin-top: 2rem;
+}
+
+.profile-summary{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.summary-card {
+    border: 1px solid var(--secondary-main);
+    border-radius: 10px;
+    width: 8rem;
+    height: 5.5rem;
+    padding: 1rem;
+    margin: .8rem;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    transition: all 0.2s ease;
+}
+
+.summary-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+}
+
+.summary {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+/* .profile-details-section {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: .2rem;
+    font-size: 14px;
+}
+
+.detail-item {
+    position: relative;
+    padding-left: .8em;
+}
+
+.detail-item::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+} */
+
+.email-group {
+    display: flex;
+}
+
+.email-group .detail-item {
+    margin-right: .8rem;
+}
+
+@media (min-width: 768px) {
+    .profile-inner {
+        flex-direction: initial;
+    }
+
+    .profile-details-section {
+        margin: 0 0 0 2rem;
+        gap: 1.2rem;
+    }
+
+    .profile-item-group {
+        font-size: 18px;
+    }
+
+    .detail-item:last-child {
+        margin-top: 1rem;
+    }
+
+    .profile-button-group {
+        gap: 1.6rem;
+    }
+
+    .profile-buttons {
+        gap: 1rem;
+    }
+
+    .summary-card {
+        width: 10rem;
+        height: 6.5rem;
+        padding: 1.2rem;
+        margin: 1rem;
+    }
+
+    .summary {
+        font-size: 18px;
+    }
+
+    /* .modal.ready {
+        padding: 1.5rem;
+        width: 20rem;
+        font-size: 16px;
+    }
+
+    .modal-close.ready {
+        margin-top: 1.5rem;
+        padding: .4rem 1rem;
+    } */
+
+    /* .detail-item {
+        padding-left: 1em;
+    } */
+
+    /* .email-group .detail-item {
+        margin-right: 1rem;
+    } */
+}

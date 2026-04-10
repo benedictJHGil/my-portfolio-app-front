@@ -1,0 +1,20 @@
+.Tech-items {
+    display: flex;
+    flex-direction: column;
+    gap: .4rem;
+}
+
+.Tech-item-title {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+@media (min-width: 768px) {
+    .Tech-items {
+        gap: .6rem;
+    }
+
+    .Tech-item-title {
+        font-size: 18px;
+    }
+}

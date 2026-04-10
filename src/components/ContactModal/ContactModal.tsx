@@ -4,6 +4,7 @@ import { useState } from "react"
 import { notFound } from "next/navigation";
 import { AiOutlineClose } from 'react-icons/ai'
 import Button from "../Button";
+import { cx } from '@/utils/cx'
 import styles from "./ContactModal.module.css"
 
 interface ContactData {
@@ -72,12 +73,12 @@ function ContactModal({ isOpen, onClose }: ContactData) {
     if (!isOpen) return null;
 
     return (
-        <div className="modal-backdrop" onClick={onClose}>
-            <div className="modal" onClick={(e) => e.stopPropagation()}>
-                <div className="modal-header">
+        <div className={cx(styles, "modal-backdrop")} onClick={onClose}>
+            <div className={cx(styles, "modal")} onClick={(e) => e.stopPropagation()}>
+                <div className={cx(styles, "modal-header")}>
                     <h2>Contact</h2>
                     <button
-                        className="modal-close"
+                        className={cx(styles, "modal-close")}
                         onClick={onClose}
                         aria-label="닫기"
                     >

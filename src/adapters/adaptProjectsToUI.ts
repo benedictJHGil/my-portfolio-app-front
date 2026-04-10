@@ -1,4 +1,5 @@
 import type { IncomingProject, UIProject  } from '@/types'
+import { toTechStack } from './toTechStack'
 
 function toPeriodLabel(start?: string | null, end?: string | null): string | null {
 	if (!start && !end) return null
@@ -19,16 +20,16 @@ function normalizeUrl(u?: string | null): string | undefined {
 	return `https://${trimmed}`
 }
 
-function toTechStack(devEnv: IncomingProject["dev_env"]): string[] {
-	if (!devEnv || devEnv.length === 0) return []
-	const norm = (s: string) => s.trim().replace(/\s+/g, ' ')
-	const set = new Set<string>()
-	devEnv.forEach(d => {
-		const n = norm(d.name || '')
-		if (n) set.add(n)
-	})
-	return Array.from(set)
-}
+// function toTechStack(devEnv: IncomingProject["dev_env"]): string[] {
+// 	if (!devEnv || devEnv.length === 0) return []
+// 	const norm = (s: string) => s.trim().replace(/\s+/g, ' ')
+// 	const set = new Set<string>()
+// 	devEnv.forEach(d => {
+// 		const n = norm(d.name || '')
+// 		if (n) set.add(n)
+// 	})
+// 	return Array.from(set)
+// }
 
 export function adaptProjectsToUI(items: IncomingProject[]): UIProject[] {
 	return (items || []).map((p, idx) => ({

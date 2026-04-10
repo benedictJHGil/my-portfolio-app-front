@@ -26,10 +26,10 @@ function ActionsButton({ actions }: ActionsButtonProps) {
                     {actions?.github && actions.github.trim() && (
                         <Button
                             href={actions.github}
-                            className={"button is-img"}
+                            className={"button has-icon"}
                             target={"_blank"}
                             rel={"noopener noreferrer"}
-                            image={{src: "/images/icon/github.png", alt: "GitHub", imgClassName: "btn-img"}}
+                            image={{src: "/images/icon/github.svg", alt: "GitHub", imgClassName: "btn-img", hasIcon: true}}
                         >
                             GitHub
                         </Button>
@@ -37,10 +37,10 @@ function ActionsButton({ actions }: ActionsButtonProps) {
                     {actions?.site && actions.site.trim() && (
                         <Button
                             href={actions.site}
-                            className={"button is-img"}
+                            className={"button has-icon"}
                             target={"_blank"}
                             rel={"noopener noreferrer"}
-                            image={{src: "/images/icon/link.png", alt: "link", imgClassName: "btn-img"}}
+                            image={{src: "/images/icon/link.svg", alt: "link", imgClassName: "btn-img", hasIcon: true}}
                         >
                             Link
                         </Button>
@@ -49,10 +49,10 @@ function ActionsButton({ actions }: ActionsButtonProps) {
                         <Button
                             key={x.url}
                             href={x.url}
-                            className={"button is-img"}
+                            className={"button has-icon"}
                             target={"_blank"}
                             rel={"noopener noreferrer"}
-                            image={{src: "/images/icon/github.png", alt: "GitHub", imgClassName: "btn-img"}}
+                            image={{src: "/images/icon/github.svg", alt: "GitHub", imgClassName: "btn-img", hasIcon: true}}
                         >
                             {x.label}
                         </Button>

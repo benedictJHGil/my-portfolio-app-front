@@ -1,13 +1,15 @@
 'use client'
 
-import styles from '../DetailBox/DetailBox.module.css'
+import { cx } from '@/utils/cx'
+import styles from './TechStack.module.css'
 
 interface TeckStackProps {
     stacks?: string[]
     isDetailBox: boolean
+    className?: string
 }
 
-function TechStack({ stacks, isDetailBox }: TeckStackProps) {
+function TechStack({ stacks, isDetailBox, className }: TeckStackProps) {
     
     return (
         <>
@@ -16,7 +18,7 @@ function TechStack({ stacks, isDetailBox }: TeckStackProps) {
                     {isDetailBox && (
                         <span className={styles["k"]}>기술 스택</span>
                     )}
-                    <ul className={styles["stack"]}>
+                    <ul className={cx(styles, className, "stack")}>
                         {stacks.map((s) => <li key={s} className={styles["badge"]}>{s}</li>)}
                     </ul>
                 </div>
