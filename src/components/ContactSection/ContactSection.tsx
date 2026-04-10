@@ -80,7 +80,7 @@ function ContactSection({ contact }: ContactSectionProps) {
                         type={"button"}
                         className={"button cta-button cta-sub-style has-icon"}
                         onClick={() => setIsModalOpen(true)}
-                        image={{src: "/images/icon/contact.svg", alt: "Contact", imgClassName: "btn-img", hasIcon: true}}
+                        image={{src: "/images/icon/contact.png", alt: "Contact", imgClassName: "btn-img", hasIcon: true}}
                     >
                         메시지 보내기
                     </Button>
@@ -90,7 +90,7 @@ function ContactSection({ contact }: ContactSectionProps) {
                             className={"button has-icon is-reverse"}
                             target={"_blank"}
                             rel={"noopener noreferrer"}
-                            image={{src: "/images/icon/github.svg", alt: "GitHub", imgClassName: "btn-img", hasIcon: true}}
+                            image={{src: "/images/icon/github.png", alt: "GitHub", imgClassName: "btn-img", hasIcon: true}}
                         >
                             GitHub
                         </Button>
@@ -98,7 +98,7 @@ function ContactSection({ contact }: ContactSectionProps) {
                             type={"button"}
                             className={"button has-icon is-reverse"}
                             onClick={() => openModal("Blog는 현재 준비중입니다.")}
-                            image={{src: "/images/icon/blog.svg", alt: "Blog", imgClassName: "btn-img", hasIcon: true}}
+                            image={{src: "/images/icon/blog.png", alt: "Blog", imgClassName: "btn-img", hasIcon: true}}
                         >
                             Blog
                         </Button>
@@ -106,7 +106,7 @@ function ContactSection({ contact }: ContactSectionProps) {
                             type={"button"}
                             className={"button has-icon is-reverse"}
                             onClick={() => openModal("YouTube는 현재 준비중입니다.")}
-                            image={{src: "/images/icon/youtube.svg", alt: "YouTube", imgClassName: "btn-img", hasIcon: true}}
+                            image={{src: "/images/icon/youtube.png", alt: "YouTube", imgClassName: "btn-img", hasIcon: true}}
                         >
                             YouTube
                         </Button>
@@ -115,7 +115,7 @@ function ContactSection({ contact }: ContactSectionProps) {
                             className={"button has-icon is-reverse"}
                             target={"_blank"}
                             rel={"noopener noreferrer"}
-                            image={{src: "/images/icon/resume.svg", alt: "Resume", imgClassName: "btn-img", hasIcon: true}}
+                            image={{src: "/images/icon/resume.png", alt: "Resume", imgClassName: "btn-img", hasIcon: true}}
                         >
                             Resume
                         </Button>
