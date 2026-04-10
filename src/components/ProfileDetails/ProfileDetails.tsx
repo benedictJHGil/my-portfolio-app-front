@@ -85,7 +85,7 @@ function ProfileDetails({ profile }: ProfileDetailsProps) {
                                     href={profile.email ? `mailto:${profile.email}` : undefined}
                                     className={"button has-icon is-reverse"}
                                     rel={"noopener noreferrer"}
-                                    image={{src: "/images/icon/email.svg", alt: "Email", imgClassName: "btn-img", hasIcon: true}}
+                                    image={{src: "/images/icon/email.png", alt: "Email", imgClassName: "btn-img", hasIcon: true}}
                                 >
                                     Email
                                 </Button> */}
@@ -94,7 +94,7 @@ function ProfileDetails({ profile }: ProfileDetailsProps) {
                                     className={"button has-icon is-reverse"}
                                     target={"_blank"}
                                     rel={"noopener noreferrer"}
-                                    image={{src: "/images/icon/github.svg", alt: "GitHub", imgClassName: "btn-img", hasIcon: true}}
+                                    image={{src: "/images/icon/github.png", alt: "GitHub", imgClassName: "btn-img", hasIcon: true}}
                                 >
                                     GitHub
                                 </Button>
@@ -105,7 +105,7 @@ function ProfileDetails({ profile }: ProfileDetailsProps) {
                                     className={"button cta-button has-icon"}
                                     target={"_self"}
                                     rel={"noopener noreferrer"}
-                                    image={{src: "/images/icon/arrow.svg", alt: "arrow", imgClassName: "btn-img", hasIcon: true}}
+                                    image={{src: "/images/icon/arrow.png", alt: "arrow", imgClassName: "btn-img", hasIcon: true}}
                                 >
                                     포트폴리오 바로가기
                                 </Button>

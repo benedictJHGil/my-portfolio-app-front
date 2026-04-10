@@ -58,7 +58,7 @@ function ExperienceSection({ experiences }: ExperienceSectionProps) {
                                 className={"button view-hide all has-icon is-reverse"}
                                 onClick={() => setShowAll(false)}
                                 rel={"noopener noreferrer"}
-                                image={{src: "/images/icon/arrow-up.svg", alt: "Tech", imgClassName: "btn-img", hasIcon: true}}
+                                image={{src: "/images/icon/arrow-up.png", alt: "Tech", imgClassName: "btn-img", hasIcon: true}}
                             >
                                 숨기기
                             </Button>
@@ -71,7 +71,7 @@ function ExperienceSection({ experiences }: ExperienceSectionProps) {
                                     className={"button view-hide all has-icon is-reverse"}
                                     onClick={() => setShowAll(true)}
                                     rel={"noopener noreferrer"}
-                                    image={{src: "/images/icon/arrow-down.svg", alt: "Tech", imgClassName: "btn-img", hasIcon: true}}
+                                    image={{src: "/images/icon/arrow-down.png", alt: "Tech", imgClassName: "btn-img", hasIcon: true}}
                                 >
                                     {hiddenCount}개 더 보기
                                 </Button>
