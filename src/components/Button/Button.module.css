@@ -1,20 +1,28 @@
 .button {
     color: #FFF;
-    font-size: 14px;
-    background-color: var(--primary-color);
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    border-radius: 5px;
+    font-size: 11px;
+    background-color: var(--primary-main);
+    box-shadow: 0 5px 10px rgba(79, 70, 229, 0.3);
+    border-radius: 999px;
     cursor: pointer;
     width: 6rem;
-    height: 1.65rem;
+    height: 1.7rem;
+    /* width: 100px;
+    height: 30px; */
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: all 0.1s ease;
 }
 
 .button:hover {
-    transform: translateY(-1px);
-    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 15px rgba(79, 70, 229, 0.4);
+}
+
+.button:active {
+    transform: translateY(1px);
+    box-shadow: 0 4px 10px rgba(79, 70, 229, 0.3);
 }
 
 .main-btn {
@@ -29,8 +37,8 @@
 .nav-button {
     color: #FFF;
     font-size: 13px;
-    background-color: var(--secondary-color);
-    border-radius: 4px;
+    background-color: var(--secondary-main);
+    border-radius: 999px;
     cursor: pointer;
     width: 5rem;
     height: 1.4rem;
@@ -40,12 +48,12 @@
 }
 
 .nav-button.active {
-    background-color: var(--primary-color);
+    background-color: var(--primary-main);
 }
 
 .btn-detail {
     font-weight: 600;
-    color: var(--primary-color);
+    color: var(--primary-main);
     background: none;
 }
 
@@ -53,18 +61,25 @@
     text-decoration: underline;
 }
 
-.is-img {
+.has-icon {
     display: grid;
     align-items: center;
     justify-items: center;
-    grid-template-columns: var(--btn-w, 1.8rem) 1fr;
+    grid-template-columns: var(--btn-w, 1.8rem) .9fr;
 }
 
 .btn-img {
     position: relative;
     width: 100%;
+    height: 100%;
     max-width: 22px;
     aspect-ratio: 1 / 1;
+}
+
+.is-reverse {
+    background-color: #FFF;
+    color: var(--primary-main);
+    border: 1px solid var(--primary-main);
 }
 
 .link-btn-404 {
@@ -73,8 +88,8 @@
 
 .link-home {
     background-color: #FFF;
-    color: var(--primary-color);
-    border: 1px solid var(--primary-color);
+    color: var(--primary-main);
+    border: 1px solid var(--primary-main);
     width: 6rem;
 }
 
@@ -82,11 +97,86 @@
     width: 10rem;
 }
 
+.cta-button {
+    width: fit-content;
+    height: fit-content;
+    gap: 8px;
+    padding: .8rem 1.4rem;
+    border-radius: 999px;
+    font-weight: 600;
+    font-size: 16px;
+    color: #fff;
+    background: linear-gradient(135deg, var(--primary-main), var(--primary-light));
+    grid-template-columns: 1fr var(--btn-w, 1.8rem);
+}
+
+.cta-button .btn-img {
+    grid-row: 1;
+    grid-column : 2;
+    transition: transform 0.2s ease;
+}
+
+.cta-button:hover .btn-img {
+    transform: translateX(4px);
+}
+
+.cta-button p {
+    grid-row: 1;
+    grid-column: 1;
+}
+
+.oriented {
+    width: max-content;
+    height: max-content;
+    font-size: 12px;
+    padding: .1rem .3rem;
+}
+
+.cta-sub-style {
+    padding: .6rem 1.4rem;
+}
+
+.view-hide {
+    width: max-content;
+    height: max-content;
+    box-shadow: none;
+    font-size: 11px;
+    border: none;
+    border-radius: initial;
+    grid-template-columns: max-content var(--btn-w, 1rem);
+    background-color: initial;
+}
+
+.view-hide:hover {
+    transform: none;
+    box-shadow: none;
+}
+
+.view-hide .btn-img {
+    grid-row: 1;
+    grid-column : 2;
+}
+
+.view-hide p {
+    grid-row: 1;
+    grid-column: 1;
+}
+
+.view-hide.all {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    font-size: 14px;
+}
+
 @media (min-width: 768px) {
     .button {
         font-size: 18px;
-        width: 8.5rem;
-        height: 2.2rem;
+        width: 8.7rem;
+        height: 2.4rem;
     }
 
     .main-btn {
@@ -99,7 +189,6 @@
 
     .nav-button {
         font-size: 18px;
-        border-radius: 6px;
         width: 8rem;
         height: 2.2rem;
     }
@@ -122,5 +211,37 @@
 
     .link-main {
         width: 14rem;
+    }
+
+    .cta-button {
+        width: 22rem;
+        height: 4rem;
+        font-size: 20px;
+    }
+
+    .oriented {
+        width: max-content;
+        height: max-content;
+        font-size: 14px;
+        padding: .2rem .4rem;
+    }
+
+    .cta-sub-style {
+        padding: .4rem 1.4rem;
+        width: 14rem;
+        height: 3.5rem;
+        font-size: 18px;
+    }
+
+    .view-hide {
+        width: max-content;
+        height: max-content;
+        font-size: 16px;
+        grid-template-columns: max-content var(--btn-w, 1.4rem);
+    }
+
+    .view-hide.all {
+        font-size: 18px;
+        grid-template-columns: max-content var(--btn-w, 1.6rem);
     }
 }

@@ -9,8 +9,8 @@
 }
 
 .tab-bar li.active {
-    color: var(--primary-color);
-    border-bottom: 2px solid var(--primary-color);
+    color: var(--primary-main);
+    border-bottom: 2px solid var(--primary-main);
     font-weight: 600;
 }
 
@@ -22,10 +22,10 @@
 .select-box { 
     padding: .6rem .8rem;
     width: 100%;
-    border: 1px solid var(--secondary-color);
+    border: 1px solid var(--secondary-main);
     border-radius: 8px;
     background: #fff;
-    color: var(--primary-color);
+    color: var(--primary-main);
     font-size: 14px;
     cursor: pointer;
 }
@@ -37,7 +37,7 @@
     width: 100%;
     background: #fff;
     border-radius: 8px;
-    border: 1px solid var(--secondary-color);
+    border: 1px solid var(--secondary-main);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
     overflow: hidden;
     z-index: 10;
@@ -45,7 +45,7 @@
 
 .option { 
     padding: .6rem .8rem;
-    color: var(--primary-color);
+    color: var(--primary-main);
     font-size: 14px;
 }
 
@@ -54,7 +54,7 @@
 }
 
 .option:hover {
-    background: var(--secondary-color);
+    background: var(--secondary-main);
 }
 
 .arrow,

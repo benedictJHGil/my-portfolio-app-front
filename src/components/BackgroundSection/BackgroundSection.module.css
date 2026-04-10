@@ -1,0 +1,23 @@
+.background-inner {
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    gap: 5rem;
+}
+
+.background-grid {
+    margin-top: 1rem;
+}
+
+.left {
+    margin-left: 1rem;
+}
+
+.right {
+    line-height: 1.6;
+}
+
+@media (min-width: 768px) {
+    .left {
+        margin-left: 1.6rem;
+    }
+}

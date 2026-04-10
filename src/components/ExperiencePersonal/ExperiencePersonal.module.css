@@ -1,0 +1,55 @@
+.experience-item {
+    /* width: 100%; */
+    margin: 1.5rem 0;
+}
+
+.personal-card {
+    padding: 1.2rem;
+    border-radius: 10px;
+    overflow-wrap: break-word;
+    word-break: break-all;
+    background: #fff;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+    transition: all 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: .3rem;
+    /* height: 10rem; */
+}
+
+.personal-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 24px rgba(0,0,0,0.15);
+}
+
+.personal-card .title {
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.personal-card .period {
+    font-size: 10px;
+}
+
+.personal-card .summary {
+    font-size: 11px;
+}
+
+@media (min-width: 768px) {
+    .personal-card {
+        gap: .6rem;
+    }
+
+    .personal-card .title {
+        font-size: 18px;
+    }
+
+    .personal-card .period {
+        font-size: 14px;
+    }
+
+    .personal-card .summary {
+        font-size: 16px;
+    }
+}

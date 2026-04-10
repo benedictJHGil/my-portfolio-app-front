@@ -1,9 +1,5 @@
-"use client"
-
-import { useState } from "react";
-import "./ProfileDetails.page.css"
+import styles from "./ProfileDetails.module.css"
 import Button from "../Button";
-import ContactModal from "../ContactModal/ContactModal";
 import MyImage from "../MyImage/MyImage";
 
 interface Profile {
@@ -13,7 +9,10 @@ interface Profile {
     nickname?: string; 
     birthdate?: string; 
     phoneNumber?: string; 
-    email?: string; 
+    email?: string;
+    job?: string;
+    introduction?: Introduction;
+    resume?: string; 
     github?: string; 
     blog?: string; 
     youtube?: string;
@@ -23,85 +22,113 @@ interface ProfileDetailsProps {
     profile: Profile;
 }
 
-function ProfileDetails({ profile }: ProfileDetailsProps) {
-    const [modalOpen, setModalOpen] = useState(false);
-    const [message, setMessage] = useState("");
-    const [isModalOpen, setIsModalOpen] = useState(false);
+interface Introduction {
+    intro: string
+    highlights: string[]
+    summary: string[]
+}
 
-    const openModal = (msg: string) => {
-        setMessage(msg);
-        setModalOpen(true);
-    };
+function ProfileDetails({ profile }: ProfileDetailsProps) {
+    const renderText = (text: string, highlights: string[]) => {
+        if (!text) return null;
+
+        let result: React.ReactNode[] = [text];
+
+        highlights.forEach((keyword) => {
+            result = result.flatMap((part) => {
+                if (typeof part !== "string") return [part];
+
+                return part.split(keyword).flatMap((splitPart, index, arr) => {
+                    if (index < arr.length - 1) {
+                        return [
+                            splitPart,
+                            <span key={`${keyword}-${index}`} className={styles["highlight"]}>
+                                {keyword}
+                            </span>,
+                        ];
+                    }
+                    return [splitPart];
+                });
+            });
+        });
+
+        return result;
+    }
 
     try {
         return (
-        <div className="profile-inner">
-            <section className="profile-header-section">
-                <MyImage 
-                    src={"/images/icon/profile.jpg"}
-                    alt={"유일한"}
-                    fill
-                    className={"profile-image-wrap"}
-                    isClickable={false}
-                />
-                <div className="social-links-group">
-                    <Button
-                        href={profile.github ? profile.github : "#"}
-                        className={"button is-img"}
-                        target={"_blank"}
-                        rel={"noopener noreferrer"}
-                        image={{src: "/images/icon/github.png", alt: "GitHub", imgClassName: "btn-img"}}
-                    >
-                        GitHub
-                    </Button>
-                    <Button
-                        type={"button"}
-                        className={"button is-img"}
-                        onClick={() => openModal("Blog는 현재 준비중입니다.")}
-                        image={{src: "/images/icon/blog.png", alt: "Blog", imgClassName: "btn-img"}}
-                    >
-                        Blog
-                    </Button>
-                    <Button
-                        type={"button"}
-                        className={"button is-img"}
-                        onClick={() => openModal("YouTube는 현재 준비중입니다.")}
-                        image={{src: "/images/icon/youtube.png", alt: "YouTube", imgClassName: "btn-img"}}
-                    >
-                        YouTube
-                    </Button>
-                </div>
-            </section>
+            <div className={styles["profile-container"]}>
+                <div className={styles["profile-inner"]}>
+                    <section className={styles["profile-header-section"]}>
+                        <MyImage 
+                            src={"/images/about/profile.jpg"}
+                            alt={"유일한"}
+                            fill
+                            className={"profile-image-wrap"}
+                            isClickable={false}
+                        />
+                    </section>
 
-            {modalOpen && (
-                <div className="modal-backdrop" onClick={() => setModalOpen(false)}>
-                    <div className="modal ready" onClick={(e) => e.stopPropagation()}>
-                        <p>{message}</p>
-                        <button className="modal-close ready" onClick={() => setModalOpen(false)}>확인</button>
-                    </div>
+                    <section className={styles["profile-details-section"]}>
+                        <div className={styles["profile-item-group"]}>
+                            <p className={styles["detail-item"]}>{profile.nameKr}</p>
+                            <p className={styles["detail-item"]}>{profile.job}</p>
+                            {profile.introduction && (
+                                <p className={styles["detail-item"]}>
+                                    {renderText(profile.introduction.intro, profile.introduction.highlights)}
+                                </p>
+                            )}
+                        </div>
+                        <div className={styles["profile-button-group"]}>
+                            <div className={styles["profile-buttons"]}>
+                                {/* <Button
+                                    href={profile.email ? `mailto:${profile.email}` : undefined}
+                                    className={"button has-icon is-reverse"}
+                                    rel={"noopener noreferrer"}
+                                    image={{src: "/images/icon/email.svg", alt: "Email", imgClassName: "btn-img", hasIcon: true}}
+                                >
+                                    Email
+                                </Button> */}
+                                <Button
+                                    href={profile.github ? profile.github : "#"}
+                                    className={"button has-icon is-reverse"}
+                                    target={"_blank"}
+                                    rel={"noopener noreferrer"}
+                                    image={{src: "/images/icon/github.svg", alt: "GitHub", imgClassName: "btn-img", hasIcon: true}}
+                                >
+                                    GitHub
+                                </Button>
+                            </div>
+                            <div className={styles["portfolio-button"]}>
+                                <Button
+                                    href={"/portfolio/main"}
+                                    className={"button cta-button has-icon"}
+                                    target={"_self"}
+                                    rel={"noopener noreferrer"}
+                                    image={{src: "/images/icon/arrow.svg", alt: "arrow", imgClassName: "btn-img", hasIcon: true}}
+                                >
+                                    포트폴리오 바로가기
+                                </Button>
+                            </div>
+                        </div>
+                        
+                    </section>
                 </div>
-            )}
 
-            <section className="profile-details-section">
-                <p className="detail-item">{profile.nameKr}</p>
-                <p className="detail-item">{profile.birthdate}</p>
-                {/* <p className="detail-item">{profile.phoneNumber}</p> */}
-                <div className="email-group">
-                    <p className="detail-item">{profile.email}</p>
-                    <Button
-                        type={"button"}
-                        className={"button is-img"}
-                        onClick={() => setIsModalOpen(true)}
-                        image={{src: "/images/icon/contact.png", alt: "Contact", imgClassName: "btn-img"}}
-                    >
-                        Contact
-                    </Button>
+                <div className={styles["profile-summary-section"]}>
+                    <h2 className="section-title">한눈에 보기</h2>
+                    {profile.introduction && profile.introduction.summary.length > 0 && (
+                        <div className={styles["profile-summary"]}>
+                            {profile.introduction.summary.map((item, i) => (
+                                <div key={i} className={styles["summary-card"]}>
+                                    <p className={styles["summary"]}>{item}</p>
+                                </div>
+                            ))}
+                        </div>
+                    )}
                 </div>
-            </section>
-
-            <ContactModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
-        </div>
-    )
+            </div>
+        )
     } catch(error) {
         const msg = error instanceof Error ? error.message : 'Unknown error';
         return <h1>{msg}</h1>;

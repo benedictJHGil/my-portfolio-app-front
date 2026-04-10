@@ -1,0 +1,24 @@
+/* .total-duration {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--primary-main);
+    margin-left: .6rem;
+} */
+
+.career-grid {
+    display: flex;
+    flex-direction: column;
+    gap: .2rem;
+    width: 98%;
+}
+
+@media (min-width: 768px) {
+    /* .total-duration {
+        font-size: 20px;
+        margin-left: .8rem;
+    } */
+
+    .career-grid {
+        gap: .4rem;
+    }
+}

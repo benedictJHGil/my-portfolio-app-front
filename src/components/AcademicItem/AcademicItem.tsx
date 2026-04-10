@@ -7,6 +7,7 @@ interface Academic {
     enddate: string | null; 
     major: string; 
     grade: string | null;
+    isFinal: boolean; 
 }
 
 interface AcademicItemProps {
@@ -15,13 +16,15 @@ interface AcademicItemProps {
 
 function AcademicItem({ academic }:AcademicItemProps) {
     return (
-        <div className={styles["academic-item"]}>
-            <div className={styles["academic-item__duration"]}>
+        <>
+        {/* <div className={styles["academic-item"]}> */}
+            {/* <div className={styles["academic-item__duration"]}>
                 {academic.startdate} ~ {academic.enddate}
-            </div>
+            </div> */}
             <p className={styles["academic-item__name"]}>{academic.name}</p>
             <p className={styles["academic-item__major"]}>{academic.major}</p>
-        </div>
+        {/* </div> */}
+        </>
     )
 }
 

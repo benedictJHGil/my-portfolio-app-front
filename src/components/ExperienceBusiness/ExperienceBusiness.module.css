@@ -1,0 +1,84 @@
+.experience-item {
+    position: relative;
+    width: 100%;
+    margin: 1.5rem 0;
+}
+
+.timeline-dot {
+    position: absolute;
+    left: 50%;
+    top: 1.4rem;
+    transform: translate(-50%, 0);
+    width: 1rem;
+    height: 1rem;
+    background: var(--primary-main);
+    border-radius: 50%;
+    z-index: 2;
+}
+
+.business-card {
+    width: 42%;
+    padding: 1.2rem;
+    border-radius: 10px;
+    overflow-wrap: break-word;
+    word-break: break-all;
+    background: #fff;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+    transition: all 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    gap: .3rem;
+}
+
+.business-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 24px rgba(0,0,0,0.15);
+}
+
+.experience-item.left .business-card {
+    margin-right: auto;
+    text-align: right;
+    align-items: flex-end;
+}
+
+.experience-item.right .business-card {
+    margin-left: auto;
+    text-align: left;
+    align-items: flex-start;
+}
+
+.business-card .title {
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.business-card .period {
+    font-size: 10px;
+}
+
+.business-card .summary {
+    font-size: 11px;
+}
+
+@media (min-width: 768px) {
+    .experience-item {
+        margin: 2.5rem 0;
+    }
+
+    .business-card {
+        width: 47%;
+        gap: .6rem;
+    }
+
+    .business-card .title {
+        font-size: 18px;
+    }
+
+    .business-card .period {
+        font-size: 14px;
+    }
+
+    .business-card .summary {
+        font-size: 16px;
+    }
+}

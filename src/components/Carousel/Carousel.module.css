@@ -39,7 +39,7 @@
 }
 
 .arrow-icon {
-	color: var(--primary-color);
+	color: var(--primary-main);
 	font-size: var(--arrow-size-mo);
 }
 

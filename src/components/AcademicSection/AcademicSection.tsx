@@ -8,6 +8,7 @@ interface Academic {
     enddate: string | null; 
     major: string; 
     grade: string | null;
+    isFinal: boolean;
 }
 
 interface AcademicSectionProps {

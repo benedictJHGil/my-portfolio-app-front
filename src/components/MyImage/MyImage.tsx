@@ -3,6 +3,7 @@
 import Image from "next/image";
 import styles from './MyImage.module.css';
 import { withCdn } from '@/utils/cdn'
+import MyIcon from "../MyIcon/MyIcon";
 
 interface MyImageData {
     src: string
@@ -14,6 +15,7 @@ interface MyImageData {
     priority?: boolean;
     className?: string
     isClickable?: boolean
+    hasIcon?: boolean
 }
 
 function MyImage({
@@ -26,6 +28,7 @@ function MyImage({
     priority=false, 
     className, 
     isClickable,
+    hasIcon
 }: MyImageData) {
 
     const classNameTrim = className?.trim().split(" ")
@@ -44,6 +47,16 @@ function MyImage({
                     fill
                     style={{objectFit}}
                     priority={priority}
+                />
+            </div>
+        )
+    }
+
+    if (hasIcon) {
+        return (
+            <div className={myImageStyle} style={{cursor: cursorStyle}}>
+                <MyIcon
+                    src={withCdn(src)}
                 />
             </div>
         )

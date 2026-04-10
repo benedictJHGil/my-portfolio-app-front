@@ -1,16 +1,18 @@
 import styles from "./SkillItem.module.css"
 import MyImage from "../MyImage/MyImage";
+import type { DevEnv } from '@/types'
 
-interface Skill {
-  id: number;
-  name: string;
-  type: string;
-  level: number;
-  logo_url: string;
-}
+// interface Skill {
+//   id: number;
+//   name: string;
+//   type: string;
+//   level: number;
+//   category: string;
+//   logo_url: string;
+// }
 
 interface SkillItemProps {
-    skill: Skill
+    skill: DevEnv
 }
 
 const RADIUS = 50; // 60

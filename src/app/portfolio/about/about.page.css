@@ -4,7 +4,7 @@
 }
 
 .about-container hr {
-    color: var(--secondary-color);
+    color: var(--secondary-main);
     margin: 1.5rem 0;
 }
 
@@ -23,6 +23,11 @@
     font-weight: bold;
 }
 
+.grid {
+    width: 95%;
+    margin: 1rem auto 0;
+}
+
 .card-grid {
     display: flex;
     flex-wrap: wrap;
@@ -37,6 +42,10 @@
     .section-title {
         padding-left: 1em;
         font-size: 24px;
+    }
+
+    .grid {
+        margin: 1.5rem auto 0;
     }
 
     .card-grid {

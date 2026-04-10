@@ -8,7 +8,7 @@
 
 .donut-outer-border {
     fill: none;
-    stroke: var(--primary-color);
+    stroke: var(--primary-main);
     stroke-width: 2; 
 }
 
@@ -19,13 +19,13 @@
 
 .donut-inner-border {
     fill: none;
-    stroke: var(--primary-color);
+    stroke: var(--primary-main);
     stroke-width: 2;
 }
 
 .donut-progress {
     fill: none;
-    stroke: var(--secondary-color);
+    stroke: var(--secondary-main);
     stroke-linecap: butt;
     transition: stroke-dashoffset 0.8s ease-out;
 }
@@ -44,7 +44,7 @@
 
 .skill-level {
     font-size: 10px;
-    color: var(--primary-color);
+    color: var(--primary-main);
     font-weight: 600;
 }
 

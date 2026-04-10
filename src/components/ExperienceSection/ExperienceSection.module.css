@@ -1,0 +1,81 @@
+.experience-inner {
+    position: relative;
+}
+
+.experience-grid {
+    margin: 1rem auto 0;
+}
+
+.business-experience {
+    position: relative;
+}
+
+.experience-title {
+    position: relative;
+    padding-left: .8em;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.experience-title::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+}
+
+.business-items {
+    position: relative;
+    overflow: hidden;
+    transition: max-height .8s ease;
+}
+
+.collapsed {
+    max-height: 590px;
+}
+
+.expanded {
+    max-height: 2200px;
+}
+
+.timeline-line {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 100%;
+    background: var(--secondary-main);
+}
+
+.show-all-btn-container {
+    position: absolute;
+    width: 100%;
+    padding: 20px 0;
+    background: linear-gradient(135deg, rgba(220, 230, 242, 0.2) 0%, var(--secondary-main) 50%, var(--secondary-dark) 100%);
+    box-shadow: 0 -10px 20px -5px rgba(220, 230, 242, 0.5);
+    border-radius: 999px;
+}
+
+.personal-experience {
+    margin-top: 5rem;
+}
+
+.personal-items {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+    .experience-title {
+        font-size: 18px;
+    }
+
+    .show-all-btn-container {
+        padding: 30px 0;
+    }
+
+    .personal-experience {
+        margin-top: 8.5rem;
+    }
+}

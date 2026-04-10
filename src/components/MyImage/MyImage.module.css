@@ -2,7 +2,7 @@
     position: relative;
     width: 35px;
     aspect-ratio: 1;
-    border: 1px solid var(--secondary-color);
+    border: 1px solid var(--secondary-main);
     border-radius: 50%;
 }
 
@@ -10,7 +10,7 @@
     position: relative;
     width: 100px;
     aspect-ratio: 1;
-    border: 2px solid var(--primary-color);
+    border: 2px solid var(--primary-main);
     border-top-right-radius: 0;
     border-top-left-radius: 50%;
     border-bottom-right-radius: 50%;
