@@ -1,17 +1,8 @@
 import styles from "./CertificateItem.module.css"
-
-interface Certificate {
-    id: number; 
-    name: string; 
-    organization: string; 
-    date: string; 
-    level: string | null; 
-    score: number | null; 
-    evaluate: string;
-}
+import { UiCertificate } from "@/types/ui/about"
 
 interface CertificateItemProps {
-    certificate: Certificate
+    certificate: UiCertificate
 }
 
 function CertificateItem({ certificate }: CertificateItemProps) {

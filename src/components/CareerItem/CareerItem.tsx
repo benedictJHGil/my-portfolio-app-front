@@ -1,25 +1,8 @@
 import styles from "./CareerItem.module.css"
-
-interface Career {
-    id: number; 
-    name: string;
-    nameEn: string;
-    startdate: string; 
-    enddate: string | null; 
-    duration: string; 
-    reason?: string | null; 
-    department: string; 
-    rank: string; 
-    work: string; 
-    pay: string; 
-    location: string; 
-    task: string; 
-    dev_env: string[];
-    content: string;
-}
+import { UiCareer } from "@/types/ui/about";
 
 interface CareerItemProps {
-    career: Career;
+    career: UiCareer;
 }
 
 function CareerItem({ career }: CareerItemProps) {

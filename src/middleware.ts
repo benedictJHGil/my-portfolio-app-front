@@ -7,7 +7,7 @@ const PUBLIC_PATHS = [
 ];
 
 // 보호할 주요 경로 (예: /portfolio/**)
-const PROTECTED_PREFIXES = ['/', '/portfolio', '/data-view'];
+const PROTECTED_PREFIXES = ['/', '/portfolio', '/about', '/data-view'];
 
 export function middleware(req: NextRequest) {
     const url = req.nextUrl;
@@ -22,7 +22,7 @@ export function middleware(req: NextRequest) {
     const tokenEnv = process.env.BETA_TOKEN;                   // 환경변수에 저장한 토큰
     if (tokenFromQuery && tokenEnv && tokenFromQuery === tokenEnv) {
         // 맞는 토큰이면 쿠키 발급 후, 쿼리 제거 리다이렉트
-        const targetPath = path === '/wip' ? '/portfolio/main' : path;
+        const targetPath = path === '/wip' ? '/' : path;
         const res = NextResponse.redirect(new URL(targetPath, req.url), 307);
         res.cookies.set('beta', tokenEnv, { httpOnly: true, sameSite: 'lax', path: '/' });
         return res;
@@ -43,9 +43,9 @@ export function middleware(req: NextRequest) {
     }
 
     // --- WIP가 꺼진 경우(정식 공개) ---
-    if (!wipOn && path === '/' || path === '/wip') {
+    if (!wipOn && path === '/wip') {
         const dest = url.clone();
-        dest.pathname = '/portfolio/main';
+        dest.pathname = '/';
         dest.search = '';
         return NextResponse.redirect(dest, 307);
     }

@@ -1,20 +1,11 @@
 import { cx } from '@/utils/cx'
 import styles from "./SkillSection.module.css"
 // import SkillItem from "../SkillItem/SkillItem"
-import type { DevEnv } from '@/types'
+import { UiSkill } from '@/types/ui/skill';
 import TechItem from '../TechItem/TechItem';
 
-// interface Skill {
-//   id: number;
-//   name: string;
-//   type: string;
-//   level: number;
-//   category: string;
-//   logo_url: string;
-// }
-
 interface SkillSectionProps {
-    skills: DevEnv[];
+    skills: UiSkill[];
 }
 
 function SkillSection({ skills }: SkillSectionProps) {

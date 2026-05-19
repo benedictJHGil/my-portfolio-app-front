@@ -29,7 +29,7 @@ function ActionsButton({ actions }: ActionsButtonProps) {
                             className={"button has-icon"}
                             target={"_blank"}
                             rel={"noopener noreferrer"}
-                            image={{src: "/images/icon/github.png", alt: "GitHub", imgClassName: "btn-img", hasIcon: true}}
+                            image={{src: "/images/icon/github.png", alt: "GitHub", imgClassName: "btn-img", doChangeColor: true}}
                         >
                             GitHub
                         </Button>
@@ -40,7 +40,7 @@ function ActionsButton({ actions }: ActionsButtonProps) {
                             className={"button has-icon"}
                             target={"_blank"}
                             rel={"noopener noreferrer"}
-                            image={{src: "/images/icon/link.png", alt: "link", imgClassName: "btn-img", hasIcon: true}}
+                            image={{src: "/images/icon/link.png", alt: "link", imgClassName: "btn-img", doChangeColor: true}}
                         >
                             Link
                         </Button>
@@ -52,7 +52,7 @@ function ActionsButton({ actions }: ActionsButtonProps) {
                             className={"button has-icon"}
                             target={"_blank"}
                             rel={"noopener noreferrer"}
-                            image={{src: "/images/icon/github.png", alt: "GitHub", imgClassName: "btn-img", hasIcon: true}}
+                            image={{src: "/images/icon/github.png", alt: "GitHub", imgClassName: "btn-img", doChangeColor: true}}
                         >
                             {x.label}
                         </Button>

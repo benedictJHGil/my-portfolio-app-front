@@ -8,24 +8,21 @@ import CarouselItem from '../Carousel/CarouselItem'
 import DetailBox from '../DetailBox/DetailBox'
 import ProjectDetail from '../ProjectDetail/ProjectDetail'
 import styles from './MainPageList.module.css'
-import type { IncomingProject, UIProject } from '@/types'
-import { adaptProjectsToUI } from '@/adapters/adaptProjectsToUI'
+import { UiProject } from '@/types/ui/project'
 import { withCdn } from '@/utils/cdn'
 
-interface Props {
+interface MainPageListProps {
 	sectionTitle: string
-	items: IncomingProject[]
+	items: UiProject[]
 }
 
-function MainPageList({ sectionTitle, items }: Props) {
-    const uiItems = useMemo(() => adaptProjectsToUI(items), [items])
-
+function MainPageList({ sectionTitle, items }: MainPageListProps) {
 	const [openItemId, setOpenItemId] = useState<number | null>(null)
-	const [selectedProject, setSelectedProject] = useState<UIProject | null>(null)
+	const [selectedProject, setSelectedProject] = useState<UiProject | null>(null)
 
 	const openItem = useMemo(
-		() => uiItems.find(i => i.id === openItemId) ?? null,
-		[uiItems, openItemId]
+		() => items.find(i => i.id === openItemId) ?? null,
+		[items, openItemId]
 	)
 
 	const sectionDetailId = useMemo(() => {
@@ -58,29 +55,29 @@ function MainPageList({ sectionTitle, items }: Props) {
 		const slug = searchParams.get('project')
 		if (!slug) return
 
-		const found = uiItems.find(item => item.slug === slug)
+		const found = items.find(item => item.slug === slug)
 		if (found) {
 			setSelectedProject(found)
 		}
-	}, [searchParams, uiItems])
+	}, [searchParams, items])
 
 	const handleOpenModal = () => {
 		if (openItem) {
-			router.push(`/portfolio/main?project=${openItem.slug}`, { scroll: false })
+			router.push(`/portfolio?project=${openItem.slug}`, { scroll: false })
 			setSelectedProject(openItem)
 		}
 	}
 
 	const handleCloseModal = () => {
 		setSelectedProject(null)
-		router.push('/portfolio/main', { scroll: false })
+		router.push('/portfolio', { scroll: false })
 	}
 
 	return (
 		<>
 			<Carousel 
 				sectionTitle={sectionTitle} 
-				items={uiItems} 
+				items={items} 
 				renderItem={(item) => {
 					const isOpen = openItemId === item.id
 

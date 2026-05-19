@@ -3,22 +3,12 @@
 import { useState } from "react";
 import { cx } from '@/utils/cx'
 import styles from './ExperienceBusiness.module.css'
+import { UiExperience } from "@/types/ui/about";
 import TechStack from '../TechStack/TechStack'
 import Button from "../Button";
 
-interface Experience { 
-    id: number
-    title: string
-    type: string
-    period: string
-    role: number
-    summary: string
-    company: string
-    dev_env: string[]
-}
-
 interface ExperienceBusinessProps {
-    experiences: Experience;
+    experiences: UiExperience;
     index: number
 }
 
@@ -49,7 +39,7 @@ function ExperienceBusiness({ experiences, index }: ExperienceBusinessProps) {
                     className={"button view-hide has-icon is-reverse"}
                     onClick={() => setOpenTeck(prev => !prev)}
                     rel={"noopener noreferrer"}
-                    image={{src: `${openTeck ? "/images/icon/arrow-up.png" :"/images/icon/arrow-down.png"}`, alt: "Tech", imgClassName: "btn-img", hasIcon: true}}
+                    image={{src: `${openTeck ? "/images/icon/arrow-up.png" :"/images/icon/arrow-down.png"}`, alt: "Tech", imgClassName: "btn-img", doChangeColor: true}}
                 >
                     {openTeck ? "기술 스택 숨기기" : "기술 스택 보기"}
                 </Button>

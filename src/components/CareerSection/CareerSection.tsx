@@ -1,28 +1,11 @@
 import { cx } from '@/utils/cx'
 import styles from "./CareerSection.module.css"
+import { UiCareer } from '@/types/ui/about';
 import CareerItem from "../CareerItem/CareerItem";
-
-interface Career {
-    id: number; 
-    name: string;
-    nameEn: string;
-    startdate: string; 
-    enddate: string | null; 
-    duration: string; 
-    reason?: string | null; 
-    department: string; 
-    rank: string; 
-    work: string; 
-    pay: string; 
-    location: string; 
-    task: string; 
-    dev_env: string[]; 
-    content: string;
-}
 
 interface CareerSectionProps {
     total: string;
-    careers: Career[];
+    careers: UiCareer[];
 }
 
 function CareerSection( { careers }: CareerSectionProps) {

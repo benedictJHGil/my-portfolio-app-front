@@ -1,60 +1,14 @@
+import { UiProfile } from "@/types/ui/about"; 
+import { renderText } from "@/utils/renderText";
 import styles from "./ProfileDetails.module.css"
 import Button from "../Button";
 import MyImage from "../MyImage/MyImage";
 
-interface Profile {
-    id: number; 
-    nameKr: string; 
-    nameEn: string; 
-    nickname?: string; 
-    birthdate?: string; 
-    phoneNumber?: string; 
-    email?: string;
-    job?: string;
-    introduction?: Introduction;
-    resume?: string; 
-    github?: string; 
-    blog?: string; 
-    youtube?: string;
-}
-
 interface ProfileDetailsProps {
-    profile: Profile;
-}
-
-interface Introduction {
-    intro: string
-    highlights: string[]
-    summary: string[]
+    profile: UiProfile;
 }
 
 function ProfileDetails({ profile }: ProfileDetailsProps) {
-    const renderText = (text: string, highlights: string[]) => {
-        if (!text) return null;
-
-        let result: React.ReactNode[] = [text];
-
-        highlights.forEach((keyword) => {
-            result = result.flatMap((part): React.ReactNode[] => {
-                if (typeof part !== "string") return [part];
-
-                return part.split(keyword).flatMap((splitPart, index, arr) => {
-                    if (index < arr.length - 1) {
-                        return [
-                            splitPart,
-                            <span key={`${keyword}-${index}`} className={styles["highlight"]}>
-                                {keyword}
-                            </span>,
-                        ];
-                    }
-                    return [splitPart];
-                });
-            });
-        });
-
-        return result;
-    }
-
     try {
         return (
             <div className={styles["profile-container"]}>
@@ -75,7 +29,11 @@ function ProfileDetails({ profile }: ProfileDetailsProps) {
                             <p className={styles["detail-item"]}>{profile.job}</p>
                             {profile.introduction && (
                                 <p className={styles["detail-item"]}>
-                                    {renderText(profile.introduction.intro, profile.introduction.highlights)}
+                                    {renderText(profile.introduction.intro, profile.introduction.highlights, (word, key) => (
+                                        <span key={key} className={styles.highlight}>
+                                            {word}
+                                        </span>
+                                    ))}
                                 </p>
                             )}
                         </div>
@@ -85,7 +43,7 @@ function ProfileDetails({ profile }: ProfileDetailsProps) {
                                     href={profile.email ? `mailto:${profile.email}` : undefined}
                                     className={"button has-icon is-reverse"}
                                     rel={"noopener noreferrer"}
-                                    image={{src: "/images/icon/email.png", alt: "Email", imgClassName: "btn-img", hasIcon: true}}
+                                    image={{src: "/images/icon/email.png", alt: "Email", imgClassName: "btn-img", doChangeColor: true}}
                                 >
                                     Email
                                 </Button> */}
@@ -94,18 +52,18 @@ function ProfileDetails({ profile }: ProfileDetailsProps) {
                                     className={"button has-icon is-reverse"}
                                     target={"_blank"}
                                     rel={"noopener noreferrer"}
-                                    image={{src: "/images/icon/github.png", alt: "GitHub", imgClassName: "btn-img", hasIcon: true}}
+                                    image={{src: "/images/icon/github.png", alt: "GitHub", imgClassName: "btn-img", doChangeColor: true}}
                                 >
                                     GitHub
                                 </Button>
                             </div>
                             <div className={styles["portfolio-button"]}>
                                 <Button
-                                    href={"/portfolio/main"}
+                                    href={"/portfolio"}
                                     className={"button cta-button has-icon"}
                                     target={"_self"}
                                     rel={"noopener noreferrer"}
-                                    image={{src: "/images/icon/arrow.png", alt: "arrow", imgClassName: "btn-img", hasIcon: true}}
+                                    image={{src: "/images/icon/arrow.png", alt: "arrow", imgClassName: "btn-img", doChangeColor: true}}
                                 >
                                     포트폴리오 바로가기
                                 </Button>

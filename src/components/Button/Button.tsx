@@ -8,7 +8,7 @@ interface ButtonProps {
     href?: LinkProps['href']
     isActive?: boolean
     children: React.ReactNode
-    onClick?: () => void
+    onClick?: (e: React.MouseEvent<HTMLAnchorElement | HTMLButtonElement>) => void
     className?: string
     target?: "_blank" | "_self" | "_parent" | "_top"
     rel?: string 
@@ -21,7 +21,7 @@ interface ButtonProps {
         fill?: boolean
         imgClassName?: string
         isClickable?: boolean
-        hasIcon?: boolean
+        doChangeColor?: boolean
     }
 }
 
@@ -42,7 +42,7 @@ function Button({
         fill = false,
         imgClassName = "",
         isClickable = true,
-        hasIcon = false
+        doChangeColor = false
     } = image ?? {};
 
     const classNameTrim = className?.trim().split(" ")
@@ -75,7 +75,7 @@ function Button({
                         fill={fill}
                         className={imgClasses}
                         isClickable={isClickable}
-                        hasIcon={hasIcon}
+                        doChangeColor={doChangeColor}
                     />
                 )}
                 <p>{children}</p>
@@ -96,7 +96,7 @@ function Button({
                     fill={fill}
                     className={imgClasses}
                     isClickable={isClickable}
-                    hasIcon={hasIcon}
+                    doChangeColor={doChangeColor}
                 />
             )}
             <p>{children}</p>

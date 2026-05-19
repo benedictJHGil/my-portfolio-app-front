@@ -1,3 +1,29 @@
+import { Skill } from "./skill";
+
+export interface Project {
+    id: number
+    title: string
+    type: string
+    startdate?: string | null
+    enddate?: string | null
+    git_rep_url?: string | null
+    page_url?: string | null
+    dev_env: Skill[]
+    image_url?: string | null
+    outline?: string | null
+    role?: string | null
+    content: string
+    result?: string | null
+    slug: string
+    hasDetail: boolean
+}
+
+export interface MainPageResponse {
+    portfolio: Project[]
+    personalProjects: Project[]
+    workProjects: Project[]
+}
+
 export type TabKey =
   | 'overview'
   | 'architecture'
@@ -8,7 +34,7 @@ export type TabKey =
   | 'operationsExperience'
   | 'retrospective'
 
-export interface ProjectDetailData {
+export interface ProjectDetail {
   title: string
 	type: string
   imageUrl?: string | null

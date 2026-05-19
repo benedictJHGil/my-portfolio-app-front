@@ -1,17 +1,8 @@
 import styles from "./AcademicItem.module.css";
-
-interface Academic {
-    id: number; 
-    name: string; 
-    startdate: string; 
-    enddate: string | null; 
-    major: string; 
-    grade: string | null;
-    isFinal: boolean; 
-}
+import { UiAcademic } from "@/types/ui/about";
 
 interface AcademicItemProps {
-    academic: Academic
+    academic: UiAcademic
 }
 
 function AcademicItem({ academic }:AcademicItemProps) {

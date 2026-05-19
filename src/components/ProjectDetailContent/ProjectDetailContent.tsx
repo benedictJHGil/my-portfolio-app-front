@@ -1,6 +1,6 @@
 'use client'
 
-import type { TabKey, ProjectDetailData } from '@/types/projectDetail'
+import type { TabKey, ProjectDetail } from '@/types/api/project'
 import OverviewTab from './Tabs/OverviewTab'
 import ArchitectureTab from './Tabs/ArchitectureTab'
 import CoreFeaturesTab from './Tabs/CoreFeaturesTab'
@@ -13,7 +13,7 @@ import './ProjectDetailContent.page.css'
 
 interface ProjectDetailContentProps {
     activeTab: TabKey
-    data: ProjectDetailData
+    data: ProjectDetail
 }
 
 function ProjectDetailContent({ activeTab, data }: ProjectDetailContentProps) {

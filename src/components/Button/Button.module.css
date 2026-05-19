@@ -76,12 +76,6 @@
     aspect-ratio: 1 / 1;
 }
 
-.is-reverse {
-    background-color: #FFF;
-    color: var(--primary-main);
-    border: 1px solid var(--primary-main);
-}
-
 .link-btn-404 {
     height: 2.6rem;
 }
@@ -97,6 +91,12 @@
     width: 10rem;
 }
 
+.is-reverse {
+    background: #FFF;
+    color: var(--primary-main);
+    border: 1px solid var(--primary-main);
+}
+
 .cta-button {
     width: fit-content;
     height: fit-content;
@@ -107,7 +107,7 @@
     font-size: 16px;
     color: #fff;
     background: linear-gradient(135deg, var(--primary-main), var(--primary-light));
-    grid-template-columns: 1fr var(--btn-w, 1.8rem);
+    grid-template-columns: 1fr var(--btn-w, 1.8rem); 
 }
 
 .cta-button .btn-img {
@@ -126,10 +126,9 @@
 }
 
 .oriented {
-    width: max-content;
-    height: max-content;
-    font-size: 12px;
-    padding: .1rem .3rem;
+    width: 2.2rem;
+    height: 1.3rem;
+    border: none;
 }
 
 .cta-sub-style {
@@ -170,6 +169,51 @@
     width: 100%;
     height: 100%;
     font-size: 14px;
+}
+
+.card-cta-button { 
+    font-size: 13px;
+    padding: .6rem 1.2rem;
+    color: var(--primary-main); 
+    background: linear-gradient(135deg, #FFFFFF, var(--secondary-main));
+    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.15), 
+                0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.card-cta-button:hover {
+    background: linear-gradient(135deg, var(--secondary-main), var(--secondary-dark));
+}
+
+.card-cta-sub-style {
+    padding: .5rem 1.1rem;
+}
+
+.is-wide {
+    width: auto;
+}
+
+.card-no-text-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-no-text-button p {
+    display: none;
+}
+
+.card-oriented {
+    width: fit-content;
+    background: none;
+    box-shadow: none;
+}
+
+.is-hidden {
+    display: none;
+}
+
+.card-btn-img {
+    max-width: 18px;
 }
 
 @media (min-width: 768px) {
@@ -220,8 +264,8 @@
     }
 
     .oriented {
-        width: max-content;
-        height: max-content;
+        width: 3.8rem;
+        height: 1.8rem;
         font-size: 14px;
         padding: .2rem .4rem;
     }
@@ -243,5 +287,28 @@
     .view-hide.all {
         font-size: 18px;
         grid-template-columns: max-content var(--btn-w, 1.6rem);
+    }
+
+    .card-cta-button {
+        width: clamp(238px, 15.61vw, 290px);
+        font-size: 18px;
+        padding: .8rem 1.4rem;
+    }
+
+    .card-cta-sub-style {
+        width: clamp(190px, 12.46vw, 220px);
+        font-size: 16px;
+        height: 3rem;
+        padding: .4rem 1.4rem;
+    }
+
+    .card-no-text-button {
+        width: clamp(78px, 5.118vw, 90px);
+        height: 2rem;
+    }
+
+    .card-oriented {
+        width: 1.4rem;
+        padding: 0;
     }
 }

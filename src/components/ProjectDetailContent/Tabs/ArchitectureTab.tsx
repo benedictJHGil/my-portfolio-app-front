@@ -1,11 +1,10 @@
-import type { ProjectDetailData } from '@/types/projectDetail'
+import type { ProjectDetail } from '@/types/api/project'
 import { cx } from '@/utils/cx'
 import styles from './ArchitectureTab.module.css'
 import MyImage from '@/components/MyImage/MyImage'
-import { withCdn } from '@/utils/cdn'
 
 interface Props {
-  data: ProjectDetailData
+  data: ProjectDetail
 }
 
 function ArchitectureTab({ data }: Props) {
@@ -17,7 +16,7 @@ function ArchitectureTab({ data }: Props) {
             {data.architecture?.imageUrl && (
                 <div className={styles["architecture-image"]}>
                     <MyImage 
-                        src={withCdn(data.architecture.imageUrl)}
+                        src={data.architecture.imageUrl}
                         alt={"arch-image"}
                         fill
                         objectFit={'contain'}

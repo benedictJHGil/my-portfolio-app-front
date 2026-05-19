@@ -1,4 +1,4 @@
-export interface UIProject {
+export interface UiProject {
     id: number
     title: string
     type: string
@@ -15,4 +15,10 @@ export interface UIProject {
     priority?: boolean
     slug: string
     hasDetail: boolean
+}
+
+export interface ProjectData {
+    portfolio: UiProject[]
+    personalProjects: UiProject[]
+    workProjects: UiProject[]
 }

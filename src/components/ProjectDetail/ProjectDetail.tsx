@@ -1,8 +1,8 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import type { UIProject } from '@/types/ui'
-import type { ProjectDetailData } from '@/types/projectDetail'
+import { UiProject } from '@/types/ui/project'
+import type { ProjectDetail } from '@/types/api/project'
 import { AiOutlineClose } from 'react-icons/ai'
 import { cx } from '@/utils/cx'
 import styles from "./ProjectDetail.module.css"
@@ -21,7 +21,7 @@ type ProjectDetailActions = {
 interface ProjectDetailProps {
     actions?: ProjectDetailActions
     stacks: string[]
-    project: UIProject
+    project: UiProject
     onClose: () => void
 }
 
@@ -60,7 +60,7 @@ function ProjectDetail({ actions, stacks, project, onClose }: ProjectDetailProps
         }
     }, [])
 
-    const [data, setData] = useState<ProjectDetailData | null>(null)
+    const [data, setData] = useState<ProjectDetail | null>(null)
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState(false)
 
@@ -104,8 +104,7 @@ function ProjectDetail({ actions, stacks, project, onClose }: ProjectDetailProps
 
                 <div className={styles["project-menu"]}>
                     <div className={styles["menu-top"]}>
-                    {/* <span className={styles["menu-period"]}>{project.periodLabel}</span> */}
-                        <span className={styles["menu-period"]}>2024.05.01 ~ 2025.06.01</span>
+                        <span className={styles["menu-period"]}>{project.periodLabel}</span>
                     </div>
                     <div className={styles["menu-middle"]}>
                         <ActionsButton 
