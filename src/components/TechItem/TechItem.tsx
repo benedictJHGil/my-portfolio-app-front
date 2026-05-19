@@ -1,12 +1,12 @@
 'use client'
 
 import TechStack from '../TechStack/TechStack'
-import type { DevEnv } from '@/types'
+import { UiSkill } from '@/types/ui/skill'
 import styles from './TechItem.module.css'
 
 interface TechItemProps {
     title: string
-    skills: DevEnv[]
+    skills: UiSkill[]
     category: string
 }
 

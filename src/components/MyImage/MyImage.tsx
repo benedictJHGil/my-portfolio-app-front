@@ -15,7 +15,7 @@ interface MyImageData {
     priority?: boolean;
     className?: string
     isClickable?: boolean
-    hasIcon?: boolean
+    doChangeColor?: boolean
 }
 
 function MyImage({
@@ -28,7 +28,7 @@ function MyImage({
     priority=false, 
     className, 
     isClickable,
-    hasIcon
+    doChangeColor
 }: MyImageData) {
 
     const classNameTrim = className?.trim().split(" ")
@@ -52,7 +52,7 @@ function MyImage({
         )
     }
 
-    if (hasIcon) {
+    if (doChangeColor) {
         return (
             <div className={myImageStyle} style={{cursor: cursorStyle}}>
                 <MyIcon

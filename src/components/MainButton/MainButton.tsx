@@ -3,7 +3,7 @@
 import Button from "@/components/Button/Button"
 
 function MainButton() {
-    const mainPath = '/portfolio/main'
+    const mainPath = '/portfolio'
 
     return (
         <Button

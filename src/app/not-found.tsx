@@ -27,17 +27,13 @@ function NotFound() {
 
             <div className="actions">
                 <Button
-                    href={"/"}
-                    className={"button link-btn-404 link-home"}
+                    href={"/portfolio"}
+                    className={"button cta-button has-icon"}
+                    target={"_self"}
+                    rel={"noopener noreferrer"}
+                    image={{src: "/images/icon/arrow.png", alt: "arrow", imgClassName: "btn-img", doChangeColor: true}}
                 >
-                    홈으로 가기
-                </Button>
-
-                <Button
-                    href={"/portfolio/main"}
-                    className={"button link-btn-404 link-main"}
-                >
-                    포트폴리오 보러가기
+                    포트폴리오 바로가기
                 </Button>
             </div>
         </div>

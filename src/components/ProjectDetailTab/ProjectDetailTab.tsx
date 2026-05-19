@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useRef, useEffect } from 'react'
-import type { TabKey } from '@/types/projectDetail'
+import type { TabKey } from '@/types/api/project'
 import { cx } from '@/utils/cx'
 import styles from './ProjectDetailTab.module.css'
 

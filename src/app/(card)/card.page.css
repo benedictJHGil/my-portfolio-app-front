@@ -1,0 +1,28 @@
+.card-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100dvh;
+    overflow: hidden;
+}
+
+.card-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background:
+        radial-gradient(
+                circle at center,
+                var(--bg-accent),
+                transparent 70%
+        ),
+        linear-gradient(
+                180deg,
+                var(--bg-gradient-start),
+                var(--bg-gradient-end)
+        );
+    z-index: -999;
+}

@@ -1,13 +1,13 @@
 import { Suspense } from 'react'
 import MainPageList from './MainPageList'
-import type { IncomingProject } from '@/types/project'
+import { UiProject } from '@/types/ui/project'
 
-interface Props {
+interface MainPageListWrapperProps {
     sectionTitle: string
-    items: IncomingProject[]
+    items: UiProject[]
 }
 
-function MainPageListWrapper({ sectionTitle, items }: Props) {
+function MainPageListWrapper({ sectionTitle, items }: MainPageListWrapperProps) {
     return (
         <Suspense fallback={<div>Loading...</div>}>
             <MainPageList sectionTitle={sectionTitle} items={items} />

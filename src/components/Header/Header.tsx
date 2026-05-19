@@ -11,7 +11,7 @@ function Header() {
     const [isOpen, setIsOpen] = useState(false)
     const currentPath = usePathname();
 
-    const isMenuAvailable = currentPath === '/portfolio/main' || currentPath === '/portfolio/about';
+    const isMenuAvailable = currentPath === '/portfolio' || currentPath === '/about';
 
     // main, about 페이지일 때
     useEffect(() => {
@@ -25,7 +25,7 @@ function Header() {
     return (
         <header className={styles["header"]}>
             <div className={styles["page-logo"]}>
-                <Link href="/portfolio/main">
+                <Link href="/portfolio">
                     <MyImage
                         src={"/images/page_loge.png"}
                         alt={"유일한 포트폴리오"}

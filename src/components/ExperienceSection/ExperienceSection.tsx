@@ -3,23 +3,13 @@
 import { useState } from "react";
 import { cx } from '@/utils/cx'
 import styles from './ExperienceSection.module.css'
+import { UiExperience } from "@/types/ui/about";
 import ExperienceBusiness from '../ExperienceBusiness/ExperienceBusiness'
 import ExperiencePersonal from '../ExperiencePersonal/ExperiencePersonal'
 import Button from "../Button";
 
-interface Experience { 
-    id: number
-    title: string
-    type: string
-    period: string
-    role: number
-    summary: string
-    company: string
-    dev_env: string[]
-}
-
 interface ExperienceSectionProps {
-    experiences: Experience[];
+    experiences: UiExperience[];
 }
 
 function ExperienceSection({ experiences }: ExperienceSectionProps) {
@@ -58,7 +48,7 @@ function ExperienceSection({ experiences }: ExperienceSectionProps) {
                                 className={"button view-hide all has-icon is-reverse"}
                                 onClick={() => setShowAll(false)}
                                 rel={"noopener noreferrer"}
-                                image={{src: "/images/icon/arrow-up.png", alt: "Tech", imgClassName: "btn-img", hasIcon: true}}
+                                image={{src: "/images/icon/arrow-up.png", alt: "Tech", imgClassName: "btn-img", doChangeColor: true}}
                             >
                                 숨기기
                             </Button>
@@ -71,7 +61,7 @@ function ExperienceSection({ experiences }: ExperienceSectionProps) {
                                     className={"button view-hide all has-icon is-reverse"}
                                     onClick={() => setShowAll(true)}
                                     rel={"noopener noreferrer"}
-                                    image={{src: "/images/icon/arrow-down.png", alt: "Tech", imgClassName: "btn-img", hasIcon: true}}
+                                    image={{src: "/images/icon/arrow-down.png", alt: "Tech", imgClassName: "btn-img", doChangeColor: true}}
                                 >
                                     {hiddenCount}개 더 보기
                                 </Button>

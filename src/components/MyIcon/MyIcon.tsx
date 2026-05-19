@@ -15,7 +15,7 @@ function MyIcon({ src }: MyIconProps) {
                 maskRepeat: 'no-repeat',
                 maskSize: 'contain',
                 maskPosition: 'center',
-                display: 'inline-block',
+                display: 'block',
             }}
         />
   );

@@ -1,33 +1,13 @@
 import { cx } from '@/utils/cx'
 import styles from './BackgroundSection.module.css'
+import { UiAcademic, UiCertificate } from '@/types/ui/about';
 import AcademicItem from '../AcademicItem/AcademicItem';
 import CertificateItem from '../CertificateItem/CertificateItem';
 
-interface Academic {
-    id: number; 
-    name: string; 
-    startdate: string; 
-    enddate: string | null; 
-    major: string; 
-    grade: string | null;
-    isFinal: boolean; 
-}
-
-interface Certificate {
-    id: number; 
-    name: string; 
-    organization: string; 
-    date: string; 
-    level: string | null; 
-    score: number | null; 
-    evaluate: string;
-}
-
 interface BackgroundSectionProps {
-    academics: Academic[]
-    certificates: Certificate[]
+    academics: UiAcademic[]
+    certificates: UiCertificate[]
 }
-
 
 function BackgroundSection({ academics, certificates }: BackgroundSectionProps) {
     return (

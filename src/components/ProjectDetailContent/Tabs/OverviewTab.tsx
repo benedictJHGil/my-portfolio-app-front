@@ -1,9 +1,9 @@
-import type { ProjectDetailData } from '@/types/projectDetail'
+import type { ProjectDetail } from '@/types/api/project'
 import { cx } from '@/utils/cx'
 import styles from './OverviewTab.module.css'
 
 interface Props {
-  data: ProjectDetailData
+  data: ProjectDetail
 }
 
 function OverviewTab({ data }: Props) {

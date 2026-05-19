@@ -13,8 +13,8 @@ interface MenuProps {
 function MainMenu({onClose}: MenuProps) {
     const currentPath = usePathname();
 
-    const mainPath = '/portfolio/main'
-    const aboutPath = '/portfolio/about'
+    const mainPath = '/portfolio'
+    const aboutPath = '/about'
 
     const isMainActive = currentPath === mainPath
     const isAboutActive = currentPath === aboutPath
@@ -47,7 +47,7 @@ function MainMenu({onClose}: MenuProps) {
                     isActive={isMainActive}
                     className={"nav-button"}
                 >
-                    Main
+                    Portfolio
                 </Button>
                 <Button 
                     href={aboutPath}

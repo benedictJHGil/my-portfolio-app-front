@@ -7,6 +7,7 @@
 .contact-info {
     display: flex;
     flex-direction: column;
+    align-items: flex-start;
     gap: .2rem;
     font-size: 14px;
 }
@@ -77,6 +78,33 @@
     animation: fadeInOut 2s ease;
 }
 
+.is-hidden {
+    display: none;
+}
+
+.is-no-bullet-mark {
+    font-weight: 600;
+    font-size: 13px;
+    padding-left: 0;
+}
+
+.is-no-bullet-mark::before {
+    content: "";
+}
+
+.is-small-gap {
+    gap: .4rem;
+    margin-left: .4rem;
+}
+
+.card-contact-info {
+    gap: 1rem;
+}
+
+.card-contact-section {
+    gap: 1.6rem;
+}
+
 @keyframes fadeInOut {
     0% { opacity: 0; transform: translate(-50%, 10px); }
     20% { opacity: 1; transform: translate(-50%, 0); }
@@ -104,10 +132,24 @@
 
     .links-group {
         gap: 1rem;
+        flex-direction: row;
     }
 
     .toast {
         padding: .8rem 1.4rem;
         font-size: 16px;
+    }
+
+    .is-no-bullet-mark {
+        font-size: 16px;
+    }
+
+    .is-small-gap {
+        gap: .4rem;
+        margin-left: .4rem;
+    }
+
+    .card-contact-section {
+        gap: clamp(2rem, 2.0985vw, 3rem);
     }
 }
