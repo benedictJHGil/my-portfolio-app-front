@@ -77,14 +77,14 @@
     }
 }
 
-@keyframes hoverHint {
+/* @keyframes hoverHint {
     0% {
         transform: rotate3d(1, 1, 0, 0deg);
     }
     100% {
         transform: rotate3d(1, 1, 0, 12deg);
     }
-}
+} */
 
 /* @keyframes shadowHint {
   0% { 
@@ -107,10 +107,6 @@
   }
 } */
 
-.flipped {
-    transform: rotate3d(1, 1, 0, 180deg);
-}
-
 /* =========================
    Common
 ========================= */
@@ -127,6 +123,9 @@
     justify-content: center;
 
     overflow: hidden;
+
+    transition: transform .8s cubic-bezier(.24, 1.56, .64, 1);
+    will-change: transform;
 }
 
 .card-outline {
@@ -147,6 +146,12 @@
             var(--primary-light)
     );
     color: var(--secondary-main);
+
+    transform: rotate3d(1, 1, 0, 0deg);
+}
+
+.flipped .front {
+    transform: rotate3d(1, 1, 0, 180deg);
 }
 
 .profile-section {
@@ -218,7 +223,11 @@
     );
     color: var(--secondary-main);
 
-    transform: rotate3d(1, 1, 0, 180deg);
+    transform: rotate3d(1, 1, 0, -180deg) translateZ(1px);
+}
+
+.flipped .back {
+    transform: rotate3d(1, 1, 0, 0deg) translateZ(1px);
 }
 
 .main-button-section {
