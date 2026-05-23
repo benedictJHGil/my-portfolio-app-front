@@ -21,11 +21,6 @@ const nextConfig: NextConfig = {
                 destination: '/about', 
                 permanent: true,
             },
-            {
-                source: '/',
-                destination: '/portfolio', 
-                permanent: false,
-            },
         ]
     }
 };
