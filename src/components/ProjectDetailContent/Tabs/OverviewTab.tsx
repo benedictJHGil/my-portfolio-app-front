@@ -8,6 +8,7 @@ interface Props {
 
 function OverviewTab({ data }: Props) {
 
+    const problems = data.overview?.problems ?? []
     const features = data.overview?.main_features ?? []
 
     return (
@@ -20,10 +21,21 @@ function OverviewTab({ data }: Props) {
 
             {data.overview?.purpose && (
                 <div className={cx(styles, "block", "overview-block")}>
-                    <span className="label">목적</span>
+                    <span className="label">프로젝트 목적</span>
                     <p className={cx(styles, "desc", "overview-desc")}>
                         {data.overview.purpose}
                     </p>
+                </div>
+            )}
+
+            {problems.length > 0 && (
+                <div className={cx(styles, "block", "overview-block")}>
+                    <span className="label">해결해야 할 문제</span>
+                    <ul>
+                        {problems.map((f, i) => (
+                            <li key={i}>{f}</li>
+                        ))}
+                    </ul>
                 </div>
             )}
 
