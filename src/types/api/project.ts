@@ -42,6 +42,7 @@ export interface ProjectDetail {
 
   overview?: {
     purpose?: string
+    problems?: string[]
     team_size?: string
     main_features?: string[]
   }

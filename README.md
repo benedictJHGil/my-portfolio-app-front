@@ -1,133 +1,206 @@
-# 🌐 유일한 포트폴리오 – Frontend
+# 🌐 Portfolio Frontend
 
-> **유일한 포트폴리오 서비스입니다.**  
-> Next.js 기반으로 제작되었으며, Spring 기반의 백엔드 API와 연동됩니다.
+> 개인 포트폴리오 웹사이트의 프론트엔드 애플리케이션입니다.
+>
+> Next.js(App Router) 기반으로 제작되었으며, Spring Boot 백엔드 API와 연동하여 포트폴리오 정보를 제공합니다.
+>
+> 프론트엔드는 **Vercel**에서 서비스되고 있으며, 백엔드는 **Home Server + Docker** 환경에서 운영됩니다.
 
-> [백엔드 API Repository](https://github.com/benedictJHGil/my-portfolio-app-back) 👈️ 클릭
+> 🔗 **Backend Repository**
+>
+> https://github.com/benedictJHGil/my-portfolio-app-back
 
-<br>
+---
 
-## 🧩 주요 기능
+# 📖 Overview
 
-- 포트폴리오 프로젝트 / 경력 / 소개 / 기술 스택 정보 제공
-- API 연동 (백엔드 Spring Boot / AWS Fargate)
-- 환경 변수로 API Base URL 설정 (`NEXT_PUBLIC_API_BASE_URL`)
-- 이미지 최적화 및 Lazy Loading 적용
-- `/wip` 경로를 통한 비공개 개발 모드 지원
-- Vercel 자동 배포 (PR 기반 Preview 환경 생성)
+이 프로젝트는 개인 포트폴리오를 웹에서 제공하기 위한 프론트엔드 애플리케이션입니다.
 
-<br>
+사용자가 프로젝트, 경력, 기술 스택 등을 직관적으로 확인할 수 있도록 구성하였으며, 백엔드 API와 연동하여 데이터를 동적으로 제공합니다.
 
-## ✨ 핵심 포인트
+또한 개발 환경과 운영 환경을 분리하여 유지보수성과 확장성을 고려하였습니다.
 
-- **Next.js + SSR** → 빠르게 렌더링되고 SEO 최적화
-- **정적 파일 + CDN** → 전 세계 어디서나 빠른 페이지 표시
-- **Vercel로 자동 배포** → 커밋하면 즉시 반영되는 DevOps 경험
-- API 호출 시 **CORS / 환경분리(prod/dev)** 지원
-- 전체 인프라가 백엔드 API와 분리되어 확장성과 유지보수성이 높음
+---
 
-<br>
+# ✨ Features
 
-## 🚀 Live Service
+- 프로젝트 및 경력 소개
+- 기술 스택 정보 제공
+- About 페이지 제공
+- 백엔드 REST API 연동
+- 환경별 API Endpoint 관리
+- 이미지 최적화(Image Optimization)
+- Lazy Loading 적용
+- WIP(Work In Progress) 모드 지원
+- 반응형 UI
 
-| URL | Description |
-| --- | --- |
-| https://uniquehan.com | Main portfolio frontend (Production) |
-| https://www.uniquehan.com | Alias of production |
+---
 
-<br>
+# 🏗 Frontend Architecture
 
-## 🛠️ Tech Stack
-
-| Category | Tech |
-|----------|------|
-| Framework | **Next.js (App Router)** |
-| Language | TypeScript |
-| Deployment | **Vercel** |
-| Styling | Tailwind CSS |
-| API | Axios |
-| Infra integration | API 호출 시 CORS, ENV 설정 적용 |
-
-<br>
-
-## 📁 Project Structure
-
-```plaintext
-/src
-├─ 📁 app
-│  ├─ 📁 portfolio
-│  ├─ 📁 wip
-│  ├─ 🎨 globals.css
-│  ├─ 🧩 layout.tsx
-│  └─ 🛑 not-found.tsx
-├─ 🔌 adapters
-├─ 🧩 components
-├─ 🪝 hooks
-└─ 📦 types
+```
+Browser
+    │
+    ▼
+Next.js (App Router)
+    │
+    ▼
+Components
+    │
+    ▼
+API Adapter
+    │
+    ▼
+Spring Boot API
 ```
 
-<br>
+### Design Principles
 
-## 🏗️ Architecture Overview
+- App Router 기반 페이지 구성
+- Component 단위로 UI 분리
+- Adapter를 통한 API 호출 추상화
+- 환경 변수 기반 API 주소 관리
+- 재사용 가능한 컴포넌트 설계
+- 개발 환경과 운영 환경 분리
 
-- Frontend: Vercel (Next.js)
-- Backend: AWS ECS Fargate + Spring Boot
-- Database: AWS RDS (PostgreSQL)
-- DNS: Route 53
-- SSL/TLS: AWS Certificate Manager
-- Network: ALB (HTTPS 443 → ECS → RDS)
+---
 
-<br>
+# 🛠 Tech Stack
+
+| Category | Technology |
+|-----------|------------|
+| Framework | Next.js (App Router) |
+| Language | TypeScript |
+| Styling | Tailwind CSS |
+| Deployment | Vercel |
+| Version Control | Git / GitHub |
+
+---
+
+# 📂 Project Structure
+
+```text
+src
+├── app
+│   ├── (card)
+│   ├── (site)
+│   │   ├── about
+│   │   ├── portfolio
+│   │   └── wip
+│   ├── globals.css
+│   ├── layout.tsx
+│   └── not-found.tsx
+├── adapters
+├── components
+├── lib
+├── hooks
+├── types
+└── utils
+```
+
+---
+
+# 🌐 Live Service
+
+| URL | Description |
+|------|-------------|
+| https://uniquehan.com | Production |
+| https://www.uniquehan.com | Alias Domain |
+
+---
+
+# ⚙ Environment Variables
+
+```env
+NEXT_PUBLIC_API_BASE_URL=
+NEXT_PUBLIC_WIP=
+```
+
+환경에 따라 API Endpoint와 WIP 모드를 분리하여 관리합니다.
+
+---
+
+# 🚀 Local Development
+
+```bash
+npm install
+
+npm run dev
+```
+
+Production Build
+
+```bash
+npm run build
+
+npm start
+```
+
+---
+
+# 🚀 Deployment
+
+현재 서비스는 다음과 같은 구조로 운영됩니다.
+
+### Production Environment
+
+- Frontend : Vercel
+- Backend : Home Server (Docker)
+- API Tunnel : Cloudflare Tunnel
 
 ```mermaid
 flowchart LR
 
-subgraph User["🌐 User Browser"]
-    A["uniquehan.com"]
-end
-
-subgraph Frontend["Frontend (Vercel)"]
-    FE["React / Next.js App"]
-end
-
-subgraph AWS_DNS["Route 53 (DNS)"]
-    DNS["api.uniquehan.com / uniquehan.com"]
-end
-
-subgraph ALB["Application Load Balancer (AWS ALB)"]
-    HTTPS443["HTTPS :443 Listener"]
-    TG["Target Group (EC2/ECS Targets)"]
-end
-
-subgraph ECS["AWS ECS (Fargate)"]
-    ECSService["ECS Service"]
-    ECSTask["ECS Task (Docker Container)"]
-end
-
-subgraph Backend["Backend (Spring Boot)"]
-    API["portfolio-api (8080)"]
-end
-
-subgraph Database["AWS RDS (MySQL)"]
-    DB["MySQL DB"]
-end
-
-
-A -->|Access Website| FE
-A -->|API Request| DNS
-
-DNS -->|Route traffic| ALB
-ALB --> HTTPS443 --> TG --> ECSService --> ECSTask --> API
-API -->|SQL| DB
+User --> Vercel
+Vercel -->|REST API| Cloudflare
+Cloudflare --> SpringBoot
+SpringBoot --> MySQL
 ```
 
-<br>
+---
 
-## 📦 Scripts
+# 📜 Infrastructure History
 
-```sh
-npm install
-npm run dev
-npm run build
-npm start
-```
+프로젝트 운영 과정에서 인프라를 개선하였습니다.
+
+| Version | Infrastructure |
+|----------|----------------|
+| v1 | Frontend(Vercel) + Backend(AWS ECS Fargate + RDS + ALB + Route53 + Terraform) |
+| Current | Frontend(Vercel) + Backend(Home Server + Docker + Cloudflare Tunnel) |
+
+AWS 기반 클라우드 환경에서 직접 서비스를 구축하고 운영한 이후, 서비스 규모와 운영 비용을 고려하여 Home Server 기반 인프라로 이전하였습니다.
+
+이를 통해 개발 환경은 유지하면서 운영 비용을 절감하고 인프라를 직접 관리하는 경험을 쌓았습니다.
+
+---
+
+# 💡 Key Highlights
+
+- Next.js App Router 기반 개발
+- TypeScript 적용
+- 컴포넌트 기반 UI 설계
+- REST API 연동
+- 환경별 설정 분리
+- 이미지 최적화
+- Vercel 배포 경험
+- AWS 및 Home Server 환경 모두 운영 경험
+
+---
+
+# 🔮 Future Improvements
+
+- 다국어(i18n) 지원
+- 다크 모드 지원
+- Lighthouse 성능 최적화
+- PWA 적용
+- 사용자 인터랙션 애니메이션 개선
+- 접근성(Accessibility) 고도화
+
+---
+
+# 🔗 Related Repositories
+
+| Repository | Description |
+|------------|-------------|
+| Frontend | https://github.com/benedictJHGil/my-portfolio-app-front |
+| Backend | https://github.com/benedictJHGil/my-portfolio-app-back |

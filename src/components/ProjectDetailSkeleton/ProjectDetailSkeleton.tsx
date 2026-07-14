@@ -9,12 +9,18 @@ function ProjectDetailSkeleton() {
         <div className={styles["skeleton-tab"]} />
         <div className={styles["skeleton-tab"]} />
         <div className={styles["skeleton-tab"]} />
+        <div className={styles["skeleton-tab"]} />
+        <div className={styles["skeleton-tab"]} />
+        <div className={styles["skeleton-tab"]} />
+        <div className={styles["skeleton-tab"]} />
+        <div className={styles["skeleton-tab"]} />
       </div>
 
       <div className={cx(styles, "skeleton-dropdown", "mobile")}>
         <div className={styles["skeleton-select"]} />
       </div>
 
+      <div className={styles["skeleton-block"]} />
       <div className={styles["skeleton-block"]} />
       <div className={styles["skeleton-block"]} />
       <div className={styles["skeleton-block"]} />
